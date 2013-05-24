@@ -17,6 +17,8 @@ author :
   github : superRaytin
   twitter : superRaytin
   feedburner : feedname
+  keywords: superRaytin, 乱入记本, 前端开发, web
+  description: 自由和谐散漫八卦吐槽代码 —— 失去控制的「乱入记本」！
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -81,7 +83,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : false
+    provider : disqus
     disqus :
       short_name : raytinspace
     livefyre :
