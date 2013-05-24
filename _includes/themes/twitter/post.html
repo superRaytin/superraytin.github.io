@@ -11,8 +11,9 @@
       {{ content }}
     </div>
 
-  {% unless page.categories == empty %}
-    <ul class="tag_box inline">
+  <div class="clearfix">
+      {% unless page.categories == empty %}
+    <ul class="tag_box inline pull-left">
       <li><i class="icon-folder-open"></i></li>
       {% assign categories_list = page.categories %}
       {% include JB/categories_list %}
@@ -20,12 +21,13 @@
   {% endunless %}  
 
   {% unless page.tags == empty %}
-    <ul class="tag_box inline">
+    <ul class="tag_box inline pull-left">
       <li><i class="icon-tags"></i></li>
       {% assign tags_list = page.tags %}
       {% include JB/tags_list %}
     </ul>
-  {% endunless %}  
+  {% endunless %}
+ </div>
 
     <hr>
     <div class="pagination">
