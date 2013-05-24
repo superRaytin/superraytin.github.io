@@ -86,3 +86,10 @@ body{
 .post-list{ width: 100%}
 .post-list th{ padding:5px 0; text-align: left;}
 .post-list td{ padding:5px 5px}
+
+.posts li{ list-style-type: none;}
+.posts li span{ float: right;}
+.posts li a{ color: #0088cc;}
+.posts-inner{}
+.posts-title{}
+.posts-intro{}
