@@ -67,6 +67,8 @@
 body{
     padding-top: 90px;
 }
+.fn-mt10{ margin-top: 10px}
+.fn-mt20{ margin-top: 20px}
 .content h1{ margin-top: 0}
 .raytin .navbar-inner{
     height: 90px;
