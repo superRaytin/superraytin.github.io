@@ -70,6 +70,7 @@ body{
 }
 .fn-mt10{ margin-top: 10px}
 .fn-mt20{ margin-top: 20px}
+.fn-mt30{ margin-top: 30px}
 .content h1{ margin-top: 0}
 .raytin .navbar-inner{
     height: 90px;
@@ -87,6 +88,9 @@ body{
 .post-list{ width: 100%}
 .post-list th{ padding:5px 0; text-align: left;}
 .post-list td{ padding:5px 5px}
+.related{
+    margin-bottom: 20px;
+}
 
 .posts-inner{
     border-bottom: 1px dotted #ccc;
