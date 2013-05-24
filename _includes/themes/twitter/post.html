@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+    <span>{{ page.date | date_to_long_string }}</span>
+    <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
 </div>
 
 <div class="row-fluid post-full">
@@ -46,10 +47,11 @@
       </ul>
     </div>
 
+      <hr>
       <div class="related">
           <h3>Related Posts</h3>
           <table class="post-list">
-              {% for post in site.related_posts limit:3 %}
+              {% for post in site.related_posts limit:5 %}
               <tr>
                   <th><a href='{{ post.url }}'>{{ post.title }}</a></th>
                   <td>{{ post.date | date_to_string }}</td>
@@ -59,7 +61,6 @@
           </table>
       </div>
 
-      <hr>
       <script type="text/javascript" charset="utf-8">
           var disqus_url = "http://superraytin.github.com{{page.url}}";
       </script>
