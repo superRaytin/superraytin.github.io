@@ -72,6 +72,10 @@ body{
 .raytin .navbar-inner{
     height: 90px;
 }
+.navbar-inverse .navbar-inner{
+    border: none;
+    box-shadow: 2px 2px 10px #999;
+}
 .signEn{
     font-size:10px; vertical-align: top; font-style: normal;
 }
