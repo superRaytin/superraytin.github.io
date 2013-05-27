@@ -127,3 +127,10 @@ body{
     font-size: 11px;
     color: #999;
 }
+.posts h2{
+    color: #888;
+    margin: 0px;
+}
+.posts-item{
+    margin-top: 20px;
+}
