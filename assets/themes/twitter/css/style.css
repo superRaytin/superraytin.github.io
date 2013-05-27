@@ -105,8 +105,9 @@ body{
     margin-bottom: 10px;
 }
 .posts-title span{
-    float: right;
+    float: left;
     color: #999;
+    margin-right: 10px;
 }
 .posts-title a{
     color: #666;
@@ -120,6 +121,7 @@ body{
 }
 .posts-intro{
     line-height: 1.6em;
+    padding-left: 85px;
 }
 .posts-more{
     text-align: right;
