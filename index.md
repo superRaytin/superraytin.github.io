@@ -1,6 +1,6 @@
 ---
 layout: page
-title: index
+title: 乱入记本 | special live
 ---
 {% include JB/setup %}
 
