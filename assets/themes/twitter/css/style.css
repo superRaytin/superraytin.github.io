@@ -124,5 +124,6 @@ body{
     padding-left: 85px;
 }
 .posts-more{
-    text-align: right;
+    font-size: 11px;
+    color: #999;
 }
