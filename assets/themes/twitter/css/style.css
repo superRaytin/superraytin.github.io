@@ -65,7 +65,7 @@
   color: #FFF; }
 
 body{
-    padding-top: 90px;
+    padding-top: 60px;
     color: #686868;
 }
 .fn-mt10{ margin-top: 10px}
@@ -133,5 +133,5 @@ body{
     margin: 0px;
 }
 .posts-item{
-    margin-top: 20px;
+    margin-top: 40px;
 }
