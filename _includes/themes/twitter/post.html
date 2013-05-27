@@ -1,6 +1,6 @@
 <div class="page-header">
-    <span>{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</span>
-    <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+    <span class="time">{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</span>
+    <h2 class="title">{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h2>
 </div>
 
 <div class="row-fluid post-full">

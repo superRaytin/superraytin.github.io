@@ -135,3 +135,9 @@ body{
 .posts-item{
     margin-top: 40px;
 }
+.page-header .time{
+    color: #999;
+}
+.page-header .title{
+    font-size: 31.5px;
+}
