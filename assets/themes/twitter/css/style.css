@@ -67,6 +67,7 @@
 body{
     padding-top: 60px;
     color: #686868;
+    font-family: "microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .fn-mt10{ margin-top: 10px}
 .fn-mt20{ margin-top: 20px}
@@ -84,7 +85,7 @@ body{
     font-size:12px; vertical-align: top; font-style: normal; color: #aaa;
 }
 .signTitle{
-    display: inline-block; font-size: 44px; font-weight: bold; line-height: normal; vertical-align: text-top;
+    display: inline-block; font-size: 35px; font-weight: bold; line-height: normal; vertical-align: text-top;
 }
 .post-list{ width: 100%}
 .post-list th{
