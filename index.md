@@ -2,7 +2,7 @@
 layout: page
 title: index
 ---
-<!--{% include JB/setup %}-->
+{% include JB/setup %}
 
 <div class="posts">
   {% for post in site.posts %}
