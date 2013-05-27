@@ -69,6 +69,13 @@ body{
     color: #686868;
     font-family: "microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+h1,h2,h3,h4,h5,h6{ font-weight: normal}
+h1{font-size:26px;}
+h2{font-size:24px;}
+h3{font-size:22px;}
+h4{font-size:19px;}
+h5{font-size:16px;}
+h6{font-size:12px;}
 .fn-mt10{ margin-top: 10px}
 .fn-mt20{ margin-top: 20px}
 .fn-mt30{ margin-top: 30px}
@@ -123,7 +130,7 @@ body{
 }
 .posts-intro{
     line-height: 1.6em;
-    padding-left: 85px;
+    padding-left: 90px;
     font-size: 12px;
 }
 .posts-more{
@@ -142,8 +149,9 @@ body{
     color: #999;
 }
 .page-header .title{
-    font-size: 31.5px;
+    font-size: 25px;
     margin-top: 0;
+    font-weight: normal;
 }
 .git{
     float: right; margin: 5px 15px 0px 0px;
