@@ -71,7 +71,6 @@
 body{
     padding-top: 0px;
     color: #686868;
-    font-family: "microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 h1,h2,h3,h4,h5,h6{ font-weight: normal}
 h1{font-size:26px;}
@@ -84,6 +83,7 @@ h6{font-size:12px;}
 .fn-mt20{ margin-top: 20px}
 .fn-mt30{ margin-top: 30px}
 .fn-mt50{ margin-top: 50px}
+
 .content h1{ margin-top: 0}
 .raytin .navbar-inner{
     height: 60px;
@@ -97,6 +97,7 @@ h6{font-size:12px;}
 }
 .signTitle{
     display: inline-block; font-size: 35px; font-weight: bold; line-height: normal; vertical-align: text-top;
+    font-family: "microsoft Yahei";
 }
 .post-list{ width: 100%}
 .post-list th{
@@ -134,7 +135,7 @@ h6{font-size:12px;}
 }
 .posts-intro{
     line-height: 1.6em;
-    padding-left: 90px;
+    padding-left: 86px;
     font-size: 12px;
 }
 .posts-more{
