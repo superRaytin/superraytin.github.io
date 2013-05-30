@@ -99,6 +99,11 @@ h6{font-size:12px;}
     display: inline-block; font-size: 35px; font-weight: bold; line-height: normal; vertical-align: text-top;
     font-family: "microsoft Yahei";
 }
+.line{
+    height: 1px;
+    border-bottom: 1px dotted #ccc;
+    margin-left: 86px;
+}
 .post-list{ width: 100%}
 .post-list th{
     padding:5px 0;
@@ -136,7 +141,6 @@ h6{font-size:12px;}
     line-height: 1.6em;
     margin-left: 86px;
     font-size: 12px;
-    border-bottom: 1px dotted #ccc;
     padding-bottom: 10px;
 }
 .posts-more{
