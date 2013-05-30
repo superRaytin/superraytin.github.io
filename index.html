@@ -15,7 +15,11 @@ title: 乱入记本
                 {% if category[0] == 'story' %}
                     故事
                 {% else %}
-                    {{ category[0] | join: "/" }}
+                    {% if category[0] == 'skill' %}
+                        码农
+                    {% else %}
+                        {{ category[0] | join: "/" }}
+                    {% endif %}
                 {% endif %}
             {% endif %}
         </h2>
