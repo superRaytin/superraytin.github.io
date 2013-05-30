@@ -32,7 +32,7 @@ var done = {
         var disqus = _.$('disqus_thread'),
             btn_showcom = _.$('J-showComment');
 
-        _.bind(btn_showcom, function(){
+        _.bind(btn_showcom, 'click', function(){
             btn_showcom.parentNode.className = 'hide';
             disqus.className = '';
         });
