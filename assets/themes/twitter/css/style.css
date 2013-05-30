@@ -169,3 +169,11 @@ h6{font-size:12px;}
 .chinese{
     letter-spacing: 1px;
 }
+.showComment{
+    background: #eee;
+    padding: 0px 5px;
+    border-radius:3px;
+    color: #666;
+    display: inline-block;
+    cursor: pointer;
+}

@@ -45,7 +45,7 @@
     </div>
 
       <hr>
-      <div class="related">
+      <div class="related hide">
           <h3>Related Posts</h3>
           <table class="post-list">
               {% for post in site.related_posts limit:5 %}
@@ -61,7 +61,10 @@
       <script type="text/javascript" charset="utf-8">
           var disqus_url = "http://superraytin.github.com{{page.url}}";
       </script>
-      <div id="disqus_thread"></div>
+      <p>
+          <span class="showComment" id="J-showComment">comments ↓</span>
+      </p>
+      <div id="disqus_thread hide"></div>
       <script type="text/javascript">
           /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
           var disqus_shortname = 'raytinspace'; // required: replace example with your forum shortname
