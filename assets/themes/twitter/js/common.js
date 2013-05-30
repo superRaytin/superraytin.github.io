@@ -39,7 +39,7 @@ var done = {
     },
     init: function(){
         _.domReady(function(){
-            this.ev();
+            done.ev();
         });
     }
 }
