@@ -9,13 +9,14 @@ title: 乱入记本 | special live
     {% for category in site.categories %}
     <div class="posts-item">
         <h2 id="{{ category[0] }}-ref">
-            category[0]|
             {% if category[0] == 'life' %}
                 生活
-            {% else if category[0] == 'story' %}
-                故事
             {% else %}
-                {{ category[0] | join: "/" }}
+                {% if category[0] == 'story' %}
+                    故事
+                {% else %}
+                    {{ category[0] | join: "/" }}
+                {% endif %}
             {% endif %}
         </h2>
         {% for post in category[1] %}
