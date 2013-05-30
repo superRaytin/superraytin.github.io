@@ -38,7 +38,9 @@ var done = {
         });
     },
     init: function(){
-        this.ev();
+        _.domReady(function(){
+            this.ev();
+        });
     }
 }
 done.init();
