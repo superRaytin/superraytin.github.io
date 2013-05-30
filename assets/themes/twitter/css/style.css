@@ -111,9 +111,8 @@ h6{font-size:12px;}
 }
 
 .posts-inner{
-    border-bottom: 1px dotted #ccc;
     margin-bottom: 10px;
-    padding: 10px 0 10px;
+    padding: 10px 0 0;
 }
 .posts-title{
     margin-bottom: 10px;
@@ -135,8 +134,10 @@ h6{font-size:12px;}
 }
 .posts-intro{
     line-height: 1.6em;
-    padding-left: 86px;
+    margin-left: 86px;
     font-size: 12px;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
 }
 .posts-more{
     font-size: 11px;
