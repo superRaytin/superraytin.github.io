@@ -166,6 +166,9 @@ h6{font-size:12px;}
 .git{
     float: right; margin: 5px 15px 0px 0px;
 }
+.gitpng{
+    position: absolute; top: 0; right: 0; border: 0;
+}
 .chinese{
     letter-spacing: 1px;
 }
