@@ -1,0 +1,38 @@
+---
+layout: page
+title: 乱入记本
+---
+{% include JB/setup %}
+
+<div class="posts">
+
+    {% for category in site.categories %}
+    <div class="posts-item">
+        <h2 id="{{ category[0] }}-ref">
+            {% if category[0] == 'life' %}
+                生活
+            {% else %}
+                {% if category[0] == 'story' %}
+                    故事
+                {% else %}
+                    {% if category[0] == 'skill' %}
+                        码农
+                    {% else %}
+                        {{ category[0] | join: "/" }}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </h2>
+        {% for post in category[1] limit:20 %}
+        <div class="posts-inner">
+            <div class="posts-title">
+                <span>{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</span>
+                <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+            </div>
+            {% if post.description %}<div class="posts-intro">{{ post.description }} <a href="{{post.url}}" title="read more" class="posts-more">more</a></div>{% endif %}
+            <div class="line"></div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
