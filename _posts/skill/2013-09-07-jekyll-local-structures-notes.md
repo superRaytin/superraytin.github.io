@@ -64,7 +64,7 @@ cd 到工程目录，目前网上大部分教程说的启动服务命令 `jekyll
     error: invalid byte sequence in GBK. Use --trace to view backtrace
 
 ### 解决办法？
-1. `http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/` 这篇文章给出的解决办法：
+-  `http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/` 这篇文章给出的解决办法：
 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行
 
     set LC_ALL=en_US.UTF-8
@@ -73,23 +73,19 @@ cd 到工程目录，目前网上大部分教程说的启动服务命令 `jekyll
 
 这种方法经过测试并不能解决问题。
 
-2. `http://www.dewen.org/q/5893` 给出的解决办法：
+- `http://www.dewen.org/q/5893` 给出的解决办法：
 
-a:
+    a: 在文件头加上
 
-在文件头加上
+        # -*- coding:utf-8 -*-
 
-    # -*- coding:utf-8 -*-
+    指定运行环境的编码
 
-指定运行环境的编码
+        ruby --encoding=utf-8
 
-    ruby --encoding=utf-8
+    b: 运行
 
-b:
-
-运行
-
-    chcp 65001
+        chcp 65001
 
 前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。
 
