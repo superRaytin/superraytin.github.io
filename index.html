@@ -7,14 +7,26 @@ title: 乱入记本
 <div class="posts">
     <div class="posts-item">
         {% for post in site.posts limit:20 %}
-        <div class="posts-inner">
-            <div class="posts-title">
-                <span>{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</span>
-                <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <article class="post">
+            <div class="meta">
+                <div class="date">
+                    <time datetime="2013-06-03T13:42:00+05:30" data-updated="true" itemprop="datePublished">{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</time>
+                </div>
+                {% unless post.tags == empty %}
+                <div class="tags">
+                    {% assign tags_list = post.tags %}
+                    {% include JB/tags_list %}
+                </div>
+                {% endunless %}
             </div>
-            {% if post.description %}<div class="posts-intro">{{ post.description }} <a href="{{post.url}}" title="read more" class="posts-more">more</a></div>{% endif %}
-            <div class="line"></div>
-        </div>
+            <h1 class="title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
+            {% if post.description %}
+            <div class="entry-content">
+                <p>{{ post.description }}</p>
+                <a href="{{post.url}}" class="more-link">Continue Reading &rarr;</a>
+            </div>
+            {% endif %}
+        </article>
         {% endfor %}
     </div>
 </div>
