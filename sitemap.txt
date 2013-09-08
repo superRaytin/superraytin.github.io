@@ -2,10 +2,7 @@
 http://superRaytin.github.io/archive.html
 http://superRaytin.github.io/atom.xml
 http://superRaytin.github.io/categories.html
-http://superRaytin.github.io/index - 20130907.html
 http://superRaytin.github.io/index.html
-http://superRaytin.github.io/index.html.v1.bak
-http://superRaytin.github.io/index.md.v0.bak
 http://superRaytin.github.io/life.html
 http://superRaytin.github.io/pages.html
 http://superRaytin.github.io/rss.xml
