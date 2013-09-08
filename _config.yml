@@ -9,7 +9,7 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 乱入记本
+title : 柳裟
 tagline: taglining
 author :
   name : 柳裟
@@ -18,7 +18,6 @@ author :
   twitter : superRaytin
   feedburner : feedname
   keywords: superRaytin, 乱入记本, 前端开发, web
-  description: 自由和谐散漫八卦吐槽代码 —— 失去控制的「乱入记本」！
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
