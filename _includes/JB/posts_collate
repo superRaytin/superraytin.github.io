@@ -27,26 +27,39 @@ Usage:
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
   
     {% if forloop.first %}
-      <h2>{{this_year}}</h2>
-      <h3>{{this_month}}</h3>
-      <ul>
+      <section class="archives">
+      <h1 class="year">{{this_year}}</h1>
     {% endif %}
-  
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  
+
+    <article>
+        <div class="meta">
+            <span class="date">{{ post.date | date: "%B %e, %Y" }}</span>
+            <br>
+            <span class="tags">
+                {% assign tags_list = post.tags %}
+                {% include JB/tags_list %}
+            </span>
+
+            <span class="comments">
+                <a href="{{ BASE_PATH }}{{ post.url }}#disqus_thread">Comments</a>
+            </span>
+        </div>
+        <h1 class="title">
+            <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        </h1>
+    </article>
     {% if forloop.last %}
-      </ul>
+      </section>
     {% else %}
       {% if this_year != next_year %}
-        </ul>
-        <h2>{{next_year}}</h2>
-        <h3>{{next_month}}</h3>
-        <ul>
+        </section>
+
+        <section class="archives">
+        <h1 class="year">{{next_year}}</h1>
       {% else %}    
         {% if this_month != next_month %}
-          </ul>
-          <h3>{{next_month}}</h3>
-          <ul>
+          </section>
+          <section class="archives">
         {% endif %}
       {% endif %}
     {% endif %}
