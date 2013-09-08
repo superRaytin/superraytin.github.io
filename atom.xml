@@ -1,28 +1,236 @@
----
-layout: nil
-title : Atom Feed
----
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>{{ site.title }}</title>
- <link href="{{ site.production_url }}/{{ site.atom_path }}" rel="self"/>
- <link href="{{ site.production_url }}"/>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>{{ site.production_url }}</id>
+ <title>柳裟</title>
+ <link href="http://superRaytin.github.io/" rel="self"/>
+ <link href="http://superRaytin.github.io"/>
+ <updated>2013-09-08T22:23:11+08:00</updated>
+ <id>http://superRaytin.github.io</id>
  <author>
-   <name>{{ site.author.name }}</name>
-   <email>{{ site.author.email }}</email>
+   <name>柳裟</name>
+   <email>superRaytin@163.com</email>
  </author>
 
- {% for post in site.posts %}
+ 
  <entry>
-   <title>{{ post.title }}</title>
-   <link href="{{ site.production_url }}{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>{{ site.production_url }}{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
+   <title>windows下本地jekyll博客搭建手记</title>
+   <link href="http://superRaytin.github.io/skill/2013/09/07/jekyll-local-structures-notes"/>
+   <updated>2013-09-07T00:00:00+08:00</updated>
+   <id>http://superRaytin.github.io/skill/2013/09/07/jekyll-local-structures-notes</id>
+   <content type="html">&lt;h3 id=&#39;id2&#39;&gt;前言&lt;/h3&gt;
+
+&lt;p&gt;准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行 的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。&lt;/p&gt;
+
+&lt;h3 id=&#39;rubydevkit&#39;&gt;安装Ruby环境和DevKit&lt;/h3&gt;
+
+&lt;p&gt;直接到rubyInstaller官网下载，目前最新的版本分别是 &lt;code&gt;Ruby 2.0.0-p247 (x64)&lt;/code&gt; 和 &lt;code&gt;DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe&lt;/code&gt; ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 &lt;code&gt;C:\Ruby&lt;/code&gt; ,ruby安装成功之后安装DevKit，同样解压至 &lt;code&gt;C:\DevKit&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;h3 id=&#39;id3&#39;&gt;配置&lt;/h3&gt;
+
+&lt;p&gt;a. 打开CMD，运行以下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd C:\DevKit
+
+ruby dk.rb init
+
+ruby dk.rb install&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;b. 完成之后安装jekyll：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install jekyll&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以用 &lt;code&gt;jekyll --version&lt;/code&gt; 来检查是否安装成功&lt;/p&gt;
+
+&lt;p&gt;c. 安装rdiscount，这个是用来解析Markdown标记的解析包。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install rdiscount&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#39;id4&#39;&gt;运行&lt;/h3&gt;
+
+&lt;p&gt;cd 到工程目录，目前网上大部分教程说的启动服务命令 &lt;code&gt;jekyll --serve&lt;/code&gt; 都已过时，正确的应该是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll serve&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#39;id5&#39;&gt;中文支持异常情况&lt;/h3&gt;
+
+&lt;p&gt;你可能会遇到下面这种情况：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;D:\WebstormProjects\superraytin.github.com&amp;gt;jekyll serve
+Configuration file: D:/WebstormProjects/superraytin.github.com/_config.yml
+       Deprecation: Auto-regeneration can no longer be set from your configurati
+on file(s). Use the --watch/-w command-line option instead.
+            Source: D:/WebstormProjects/superraytin.github.com
+       Destination: D:/WebstormProjects/superraytin.github.com/_site
+      Generating... Error reading file D:/WebstormProjects/superraytin.github.co
+m/_posts/life/2013-05-23-i-am-a-test.md: invalid byte sequence in GBK
+error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或者下面这种情况&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;D:\WebstormProjects\superraytin.github.com&amp;gt;jekyll serve
+Configuration file: D:/WebstormProjects/superraytin.github.com/_config.yml
+       Deprecation: Auto-regeneration can no longer be set from your configurati
+on file(s). Use the --watch/-w command-line option instead.
+            Source: D:/WebstormProjects/superraytin.github.com
+       Destination: D:/WebstormProjects/superraytin.github.com/_site
+      Generating...   Liquid Exception: invalid byte sequence in GBK in _posts/s
+kill/2011-12-29-jekyll-introduction.md
+error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#39;id6&#39;&gt;目前网上流传的一些解决办法&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/&lt;/code&gt; 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;set LC_ALL=en_US.UTF-8&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;set LANG=en_US.UTF-8&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这种方法经过测试并不能解决问题。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;http://www.dewen.org/q/5893&lt;/code&gt; 给出的解决办法：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;a: 在文件头加上&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# -*- coding:utf-8 -*-&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;指定运行环境的编码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ruby --encoding=utf-8&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;b: 运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chcp 65001&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。&lt;/p&gt;
+
+&lt;h3 id=&#39;id7&#39;&gt;终极解决办法&lt;/h3&gt;
+
+&lt;p&gt;解决第一种错误——打开路径 &lt;code&gt;C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll&lt;/code&gt;，打开 &lt;code&gt;convertible.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;找到：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.content = File.read(File.join(base, name))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;替换成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;self.content = File.read(File.join(base, name), :encoding =&amp;gt; &amp;quot;utf-8&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解决第二种错误——打开路径 &lt;code&gt;C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll\tags&lt;/code&gt;，打开 &lt;code&gt;include.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;找到：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source = File.read(File.join(includes_dir, @file))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;替换成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source = File.read(File.join(includes_dir, @file), :encoding =&amp;gt; &amp;quot;utf-8&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重启jekyll服务，编译成功。&lt;/p&gt;
+
+&lt;h3 id=&#39;id8&#39;&gt;参考资料&lt;/h3&gt;
+
+&lt;p&gt;http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/&lt;/p&gt;
+
+&lt;p&gt;http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html&lt;/p&gt;</content>
  </entry>
- {% endfor %}
+ 
+ <entry>
+   <title>伽蓝雨</title>
+   <link href="http://superRaytin.github.io/story/2013/05/30/jia-lan-yu"/>
+   <updated>2013-05-30T00:00:00+08:00</updated>
+   <id>http://superRaytin.github.io/story/2013/05/30/jia-lan-yu</id>
+   <content type="html">&lt;p&gt;南北朝时期，当时，以宋武帝刘裕为首的南朝宋，以及道武帝拓跋珪为首的北魏，那是中国历史上一段分裂的时期。公元420年开始，南北朝之间因势力扩张以及疆土兼并，战争不断，其间南朝负多胜少。公元422年，宋武帝刘裕病逝，北魏明元帝拓跋嗣大举攻宋，先后攻取金塘（洛阳）、虎牢、滑台。430年，宋文帝刘义隆收复黄河以南失地，迫使魏军主动撤退，宋相继占领滑台、洛阳、虎牢。同年，北魏全线反击，连克金塘、洛阳、虎牢、滑台。&lt;/p&gt;
+
+&lt;p&gt;公元449年，拓跋焘大破柔然，之后兵指刘宋，宋文帝为阻止魏军南下，发兵北攻。由于宋文帝舍功采对，自戳良将，杀害裴方明等名将，使士气大挫，加上连年征战，国力渐衰，军中久无御敌之将，又不顾朝臣之反对，于太平真君十一年发兵攻魏，魏军后发制人，以号称百万之众强渡黄河，步步逼近，宋军无奈只得南撤，从此宋文帝再也无力争夺中原。&lt;/p&gt;
+
+&lt;p&gt;公元493年，魏孝文帝拓跋宏迁都洛阳。频繁南下攻齐（479年，宋中领军将军萧道成代宋建立齐朝），至此，北魏、南齐进行了长达23年的战争……&lt;/p&gt;
+
+&lt;p&gt;而《伽蓝雨》的故事，正是对那个战火纷飞年代一个凄美爱情故事的描述。&lt;/p&gt;
+
+&lt;p&gt;僧人在寺里敲着木鱼诵经，天下起了雨，僧人拿起木鱼，走到禅房之外，看着门外的烟雨、思绪飘到了很远的地方……&lt;/p&gt;
+
+&lt;p&gt;宋文帝时期，一守城将军奉命驻守洛阳城，其间邂逅当地一名女子，一见如故，很快便私订终身。此时北魏来犯，将军奉命出征，临别时拉住女子的手：“等我打胜了后，一定回来迎娶你……”&lt;/p&gt;
+
+&lt;p&gt;俩人依依昔别，女子守在城门口，看着将军坐在马鞍之上，头也不回地离去……&lt;/p&gt;
+
+&lt;p&gt;将军此征一去便是数月，其间刘宋节节败退，宋文帝一气之下连斩二将，北魏全线出击，强渡黄河，宋文帝不听朝臣进言，发动强攻，不敌之下，洛阳失守。宋文帝只得撤兵，而重伤的将军则流落于他乡。&lt;/p&gt;
+
+&lt;p&gt;待将军伤复之后，本想回朝，无奈此时刘宋大势已去，回去只有死路一条。死，将军从未怕过，但想着曾经的誓言，加上对宋文帝乱杀良将之举已至心寒，无奈之下，委身于他乡，希望有朝一日平昔战火，再回到她的身旁。&lt;/p&gt;
+
+&lt;p&gt;他们惜别的城门，有一位女子经常坐在一块石板上等着心爱的人回来。每每遇到前方归来的人，女子便问有没有见过将军，但始终没有将军得胜归来的消息。&lt;/p&gt;
+
+&lt;p&gt;女子从未放弃过，仍然日复一日地等着。又过数十年，最后女子苦守将领不遇后，落发为尼。这个故事，一传十，十传百，终于传到了在将军耳里。&lt;/p&gt;
+
+&lt;p&gt;但将军不能回去，此时北魏已迁都洛阳，这是一个不争的事实，南北朝战争还在继续，他必须活下去，等到战争结束那一天……&lt;/p&gt;
+
+&lt;p&gt;不知道多少年，战争终于结束了。&lt;/p&gt;
+
+&lt;p&gt;将军第一次回到了那个日思夜想的地方。&lt;/p&gt;
+
+&lt;p&gt;一身平民打扮的他，来到残破的早已斑驳不堪的城门前，他走到他们分别的地方，在那棵早已枯掉的大树旁边，摸着那块她天天等待他归来时坐的石板……&lt;/p&gt;
+
+&lt;p&gt;城郊传来优雅的牧笛声，路过的人告诉将军，这里曾有一个女人一直等着她心爱的人归来……&lt;/p&gt;
+
+&lt;p&gt;重新踏足熟悉的土地，他心里的感受，却是那么复杂，仿佛一切又回到了羡煞旁人的当年……&lt;/p&gt;
+
+&lt;p&gt;他在这座残破的孤城里寻着她的踪影，但始终找不到，天上的雨纷纷落下……&lt;/p&gt;
+
+&lt;p&gt;他相信她一直在等他……&lt;/p&gt;
+
+&lt;p&gt;孤城的老者告诉他，她一直是一个人……到死那天都是……&lt;/p&gt;
+
+&lt;p&gt;僧人又回到蒲团之上，静静地坐着，敲打着木鱼……&lt;/p&gt;
+
+&lt;p&gt;天上的雨仍然在纷纷落下，落在禅房外那块石板之上……&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230; &amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;公元2010年，《伽蓝雨》被谱成曲，名《烟花易冷》。&lt;/p&gt;
+
+&lt;p&gt;《烟花易冷》&lt;/p&gt;
+
+&lt;p&gt;繁华声 遁入空门 折煞了世人&lt;br /&gt; 梦偏冷 辗转一生 情债又几本&lt;br /&gt; 如你默认 生死枯等&lt;br /&gt; 枯等一圈 又一圈的 年轮&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;浮图塔 断了几层 断了谁的魂&lt;br /&gt; 痛直奔 一盏残灯 倾塌的山门&lt;br /&gt; 容我再等 历史转身&lt;br /&gt; 等酒香醇 等你弹 一曲古筝&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 你始终一个人&lt;br /&gt; 斑驳的城门 盘踞着老树根&lt;br /&gt; 石板上回荡的是 再等&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 你仍守着孤城&lt;br /&gt; 城郊牧笛声 落在那座野村&lt;br /&gt; 缘份落地生根是 我们&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;听青春 迎来笑声 羡煞许多人&lt;br /&gt; 那史册 温柔不肯 下笔都太很&lt;br /&gt; 烟花易冷 人事易分&lt;br /&gt; 而你在问 我是否还 认真&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;千年后 累世情深 还有谁在等&lt;br /&gt; 而青史 岂能不真 魏书洛阳城&lt;br /&gt; 如你在跟 前世过门&lt;br /&gt; 跟着红尘 跟随我 浪迹一生&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 你始终一个人&lt;br /&gt; 斑驳的城门 盘踞着老树根&lt;br /&gt; 石板上回荡的是 再等&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 你仍守着孤城&lt;br /&gt; 城郊牧笛声 落在那座野村&lt;br /&gt; 缘份落地生根是 我们&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 你始终一个人&lt;br /&gt; 斑驳的城门 盘踞着老树根&lt;br /&gt; 石板上回荡的是 再等&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;雨纷纷 雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 我听闻 你仍守着孤城&lt;br /&gt; 城郊牧笛声 落在那座野村&lt;br /&gt; 缘份落地生根是 我们&lt;br /&gt; 缘份落地生根是 我们&lt;br /&gt; 伽蓝寺听雨声盼 永恒&lt;br /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>我是一个测试出现在窗口上</title>
+   <link href="http://superRaytin.github.io/life/2013/05/23/i-am-a-test"/>
+   <updated>2013-05-23T00:00:00+08:00</updated>
+   <id>http://superRaytin.github.io/life/2013/05/23/i-am-a-test</id>
+   <content type="html">&lt;p&gt;aasdf 我是中文，我会随便说吗？工&lt;/p&gt;
+
+&lt;p&gt;aasdf 我是中文，我会随便说吗？工&lt;/p&gt;
+
+&lt;p&gt;oh my god&lt;/p&gt;
+
+&lt;h3 id=&#39;id1&#39;&gt;什么情况&lt;/h3&gt;</content>
+ </entry>
+ 
  
 </feed>
