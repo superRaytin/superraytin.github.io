@@ -9,5 +9,5 @@ Thumbs.db
 .rbenv-version
 .rvmrc
 .git
+.idea
 .idea/*
-_source/*
