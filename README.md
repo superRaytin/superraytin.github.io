@@ -1,1 +1,1 @@
-This is homepage of superRaytin.github.com！！
+This is homepage of superRaytin.github.com
