@@ -3,16 +3,16 @@
 <channel>
         <title>柳裟</title>
         <description>柳裟 - 柳裟</description>
-        <link>http://superRaytin.github.io</link>
-        <link>http://superRaytin.github.io</link>
-        <lastBuildDate>2013-09-09T10:48:16+08:00</lastBuildDate>
-        <pubDate>2013-09-09T10:48:16+08:00</pubDate>
+        <link>http://a.jsfor.com</link>
+        <link>http://a.jsfor.com</link>
+        <lastBuildDate>2013-09-09T14:15:13+08:00</lastBuildDate>
+        <pubDate>2013-09-09T14:15:13+08:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>windows下本地jekyll博客搭建手记</title>
-                <description>&lt;h3 id=&#39;id2&#39;&gt;前言&lt;/h3&gt;
+                <description>&lt;h3 id=&#39;id1&#39;&gt;前言&lt;/h3&gt;
 
 &lt;p&gt;准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行 的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。&lt;/p&gt;
 
@@ -20,7 +20,7 @@
 
 &lt;p&gt;直接到 &lt;a href=&#39;http://rubyinstaller.org/downloads/&#39;&gt;rubyInstaller&lt;/a&gt; 官网下载，目前最新的版本分别是 &lt;code&gt;Ruby 2.0.0-p247 (x64)&lt;/code&gt; 和 &lt;code&gt;DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe&lt;/code&gt; ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 &lt;code&gt;C:\Ruby&lt;/code&gt; ,ruby安装成功之后安装DevKit，同样解压至 &lt;code&gt;C:\DevKit&lt;/code&gt; 。&lt;/p&gt;
 
-&lt;h3 id=&#39;id3&#39;&gt;配置&lt;/h3&gt;
+&lt;h3 id=&#39;id2&#39;&gt;配置&lt;/h3&gt;
 
 &lt;p&gt;a. 打开CMD，运行以下命令：&lt;/p&gt;
 
@@ -40,13 +40,13 @@ ruby dk.rb install&lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;gem install rdiscount&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#39;id4&#39;&gt;运行&lt;/h3&gt;
+&lt;h3 id=&#39;id3&#39;&gt;运行&lt;/h3&gt;
 
 &lt;p&gt;cd 到工程目录，目前网上大部分教程说的启动服务命令 &lt;code&gt;jekyll --serve&lt;/code&gt; 都已过时，正确的应该是：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;jekyll serve&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#39;id5&#39;&gt;中文支持异常情况&lt;/h3&gt;
+&lt;h3 id=&#39;id4&#39;&gt;中文支持异常情况&lt;/h3&gt;
 
 &lt;p&gt;你可能会遇到下面这种情况：&lt;/p&gt;
 
@@ -72,7 +72,7 @@ on file(s). Use the --watch/-w command-line option instead.
 kill/2011-12-29-jekyll-introduction.md
 error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#39;id6&#39;&gt;目前网上流传的一些解决办法&lt;/h3&gt;
+&lt;h3 id=&#39;id5&#39;&gt;目前网上流传的一些解决办法&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#39;http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/&#39;&gt;http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/&lt;/a&gt; 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:&lt;/li&gt;
@@ -106,7 +106,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&
 
 &lt;p&gt;前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。&lt;/p&gt;
 
-&lt;h3 id=&#39;id7&#39;&gt;终极解决办法&lt;/h3&gt;
+&lt;h3 id=&#39;id6&#39;&gt;终极解决办法&lt;/h3&gt;
 
 &lt;p&gt;解决第一种错误——打开路径 &lt;code&gt;C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll&lt;/code&gt;，打开 &lt;code&gt;convertible.rb&lt;/code&gt;&lt;/p&gt;
 
@@ -130,13 +130,13 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&
 
 &lt;p&gt;重启jekyll服务，编译成功。&lt;/p&gt;
 
-&lt;h3 id=&#39;id8&#39;&gt;参考资料&lt;/h3&gt;
+&lt;h3 id=&#39;id7&#39;&gt;参考资料&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#39;http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/&#39;&gt;http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#39;http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html&#39;&gt;http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&#39;id9&#39;&gt;其他&lt;/h3&gt;
+&lt;h3 id=&#39;id8&#39;&gt;其他&lt;/h3&gt;
 
 &lt;p&gt;jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 &lt;code&gt;jekyll serve&lt;/code&gt;。&lt;/p&gt;
 
@@ -155,8 +155,8 @@ pause&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;批处理文件执行效果：&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt=&#39;jekyll-local&#39; src=&#39;/assets/posts/images/jekyll-local-1.png&#39; /&gt;&lt;/p&gt;</description>
-                <link>http://superRaytin.github.io/skill/2013/09/07/jekyll-local-structures-notes</link>
-                <guid>http://superRaytin.github.io/skill/2013/09/07/jekyll-local-structures-notes</guid>
+                <link>http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</link>
+                <guid>http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</guid>
                 <pubDate>2013-09-07T00:00:00+08:00</pubDate>
         </item>
 
@@ -231,22 +231,40 @@ pause&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 你始终一个人&lt;br /&gt; 斑驳的城门 盘踞着老树根&lt;br /&gt; 石板上回荡的是 再等&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;雨纷纷 雨纷纷 旧故里草木深&lt;br /&gt; 我听闻 我听闻 你仍守着孤城&lt;br /&gt; 城郊牧笛声 落在那座野村&lt;br /&gt; 缘份落地生根是 我们&lt;br /&gt; 缘份落地生根是 我们&lt;br /&gt; 伽蓝寺听雨声盼 永恒&lt;br /&gt;&lt;/p&gt;</description>
-                <link>http://superRaytin.github.io/story/2013/05/30/jia-lan-yu</link>
-                <guid>http://superRaytin.github.io/story/2013/05/30/jia-lan-yu</guid>
+                <link>http://a.jsfor.com/story/2013/05/30/jia-lan-yu</link>
+                <guid>http://a.jsfor.com/story/2013/05/30/jia-lan-yu</guid>
                 <pubDate>2013-05-30T00:00:00+08:00</pubDate>
         </item>
 
         <item>
-                <title>我是一个测试出现在窗口上</title>
-                <description>&lt;p&gt;aasdf 我是中文，我会随便说吗？工&lt;/p&gt;
+                <title>告别wordpress</title>
+                <description>&lt;p&gt;09年开始用Wordpress写博客，也过了好多年了，它的易用性，丰富的插件和主题，曾让我着迷。&lt;/p&gt;
 
-&lt;p&gt;aasdf 我是中文，我会随便说吗？工&lt;/p&gt;
+&lt;p&gt;如今，我把博客搬到了github的jekyll博客平台，没有很多的主题，甚至可以说少得可怜，插件也不多。&lt;/p&gt;
 
-&lt;p&gt;oh my god&lt;/p&gt;
+&lt;p&gt;为什么？&lt;/p&gt;
 
-&lt;h3 id=&#39;id1&#39;&gt;什么情况&lt;/h3&gt;</description>
-                <link>http://superRaytin.github.io/life/2013/05/23/i-am-a-test</link>
-                <guid>http://superRaytin.github.io/life/2013/05/23/i-am-a-test</guid>
+&lt;p&gt;自从去年开始尝试着用 &lt;code&gt;有着程序员的fackbook之称的github&lt;/code&gt; 托管代码，此后一发不可收拾，将我以前所写和正在写的项目通通搬上去。&lt;/p&gt;
+
+&lt;p&gt;不怕人家笑话，在这之前，我开发都用360云盘同步代码，公司家里两头传，有时候也会用U盘，一开始倒也不觉得麻烦，后来要写的东西慢慢变多了起来，顿时觉得有必要整理一翻了。&lt;/p&gt;
+
+&lt;p&gt;其实之前很早就对github有所耳闻，人气相当旺，很多开源项目都用它来托管代码，而我对时下流行的web技术也有很多的兴趣，常常会被引到github，对它的关注越来越多也有这方面原因。&lt;/p&gt;
+
+&lt;p&gt;而让我下定决心转到github上的却是webstorm，很适合前端开发以及web开发人员，非常棒，正如它的名字中的 &lt;code&gt;web&lt;/code&gt; 字眼，它是为web开发人员（在下认为前端应该属于web开发之列）量身定做的 一款相当精致的IDE，对Javascript，jQuery，Nodejs等的支持无所不包，我是直到去年看到同事在用之后才接触到，相见恨晚！此后一发不收拾（貌似这是第2次用这个词了），因为webstorm并 没有提供汉化版，而我的英语词汇量并不能支持我全部看懂它&amp;#8230;，我便用最原始的方法，挨个去点它的功能菜单，算是熟悉过程，发现了很多让我惊喜的功能，其中之一就是对git的无缝对接，以及 对Nodejs强劲的支持，完全可以脱离CMD了。&lt;/p&gt;
+
+&lt;p&gt;想到我以前，从Dreamweaver到Nodepad++, 内牛满面，说多了都是泪&amp;#8230; 我只能这么来比喻——webstorm就像是我失散多年的亲兄弟，它让我重新找到了写代码的快感。&lt;/p&gt;
+
+&lt;p&gt;总之，灰常喜欢，爱深深了。&lt;/p&gt;
+
+&lt;p&gt;俗话说，工欲善其事，必先得其器，还是很有道理的。&lt;/p&gt;
+
+&lt;p&gt;有了webstorm这个好装备，checkout，提交，更新等等操作都不再繁琐，有句话叫什么——妥妥的。&lt;/p&gt;
+
+&lt;p&gt;如果说有了好装备是一个原因，那另外这个是最重要的，就是 &lt;code&gt;用Markdown写文章&lt;/code&gt;。我只需要关注我要写的内容，并且格式定义简单，混久了github(github上面介绍之类的文档都是用markdown语法) 也渐渐喜欢上了这种小清新的文档格式了。&lt;/p&gt;
+
+&lt;p&gt;加上webstorm的良好支持，写好文章之后直接push，之后的就交给github吧，而且还免费，这是多么好的一件事。&lt;/p&gt;</description>
+                <link>http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress</link>
+                <guid>http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress</guid>
                 <pubDate>2013-05-23T00:00:00+08:00</pubDate>
         </item>
 

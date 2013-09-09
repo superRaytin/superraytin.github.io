@@ -46,16 +46,15 @@
 
                         <section class="aboutme">
                             <p>
-                                技术宅拯救世界。
+                                Hi，我是柳裟，我目前在杭州，主要做前端开发的工作，兴趣于Web开发技术，这是我的博客，所记载偏技术，但可灵感可生活，我喜欢和聪明的人打交道。
                             </p>
                         </section>
                     </nav>
                     <nav id="sub-nav">
                         <div class="social">
-                            <a class="google" href="https://plus.google.com/109764126807838271120?rel=author" title="Google+">Google+</a>
-                            <a class="twitter" href="http://twitter.com/leostatic" title="Twitter">Twitter</a>
-                            <a class="github" href="https://github.com/shashankmehta" title="GitHub">GitHub</a>
-                            <a class="rss" href="http://feeds.feedburner.com/shashankmehta" title="RSS">RSS</a>
+                            <a class="twitter" href="" title="暂时没有">Twitter</a>
+                            <a class="github" href="https://github.com/superRaytin" title="GitHub">GitHub</a>
+                            <a class="rss" href="/rss.xml" title="RSS">RSS</a>
                         </div>
                     </nav>
                 </header>
@@ -97,7 +96,7 @@
             </div>
             <h1 class="title"><a href="/skill/2013/09/07/jekyll-local-structures-notes">windows下本地jekyll博客搭建手记</a></h1>
             <div class="markdown-body">
-                <h3 id='id2'>前言</h3>
+                <h3 id='id1'>前言</h3>
 
 <p>准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行 的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。</p>
 
@@ -105,7 +104,7 @@
 
 <p>直接到 <a href='http://rubyinstaller.org/downloads/'>rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
 
-<h3 id='id3'>配置</h3>
+<h3 id='id2'>配置</h3>
 
 <p>a. 打开CMD，运行以下命令：</p>
 
@@ -125,13 +124,13 @@ ruby dk.rb install</code></pre>
 
 <pre><code>gem install rdiscount</code></pre>
 
-<h3 id='id4'>运行</h3>
+<h3 id='id3'>运行</h3>
 
 <p>cd 到工程目录，目前网上大部分教程说的启动服务命令 <code>jekyll --serve</code> 都已过时，正确的应该是：</p>
 
 <pre><code>jekyll serve</code></pre>
 
-<h3 id='id5'>中文支持异常情况</h3>
+<h3 id='id4'>中文支持异常情况</h3>
 
 <p>你可能会遇到下面这种情况：</p>
 
@@ -157,7 +156,7 @@ on file(s). Use the --watch/-w command-line option instead.
 kill/2011-12-29-jekyll-introduction.md
 error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
-<h3 id='id6'>目前网上流传的一些解决办法</h3>
+<h3 id='id5'>目前网上流传的一些解决办法</h3>
 
 <ol>
 <li><a href='http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/'>http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</li>
@@ -191,7 +190,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
 <p>前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。</p>
 
-<h3 id='id7'>终极解决办法</h3>
+<h3 id='id6'>终极解决办法</h3>
 
 <p>解决第一种错误——打开路径 <code>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll</code>，打开 <code>convertible.rb</code></p>
 
@@ -215,13 +214,13 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
 <p>重启jekyll服务，编译成功。</p>
 
-<h3 id='id8'>参考资料</h3>
+<h3 id='id7'>参考资料</h3>
 
 <p><a href='http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/'>http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
 
 <p><a href='http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html'>http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
 
-<h3 id='id9'>其他</h3>
+<h3 id='id8'>其他</h3>
 
 <p>jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 <code>jekyll serve</code>。</p>
 
@@ -332,36 +331,34 @@ pause</code></pre>
                     <time datetime='2013-05-23' data-updated="true" itemprop="datePublished">2013-05-23</time>
                 </div>
                 
-                <div class="tags">
-                    
-                    
-
-
-  
-     
-    	<a class="category" href="/tags.html#test-ref">test</a>&nbsp;
-    
-  
-
-
-
-                </div>
-                
             </div>
-            <h1 class="title"><a href="/life/2013/05/23/i-am-a-test">我是一个测试出现在窗口上</a></h1>
+            <h1 class="title"><a href="/life/2013/05/23/farewell-to-wordpress">告别wordpress</a></h1>
             <div class="markdown-body">
-                <p>aasdf 我是中文，我会随便说吗？工</p>
+                <p>09年开始用Wordpress写博客，也过了好多年了，它的易用性，丰富的插件和主题，曾让我着迷。</p>
 
-<p>aasdf 我是中文，我会随便说吗？工</p>
+<p>如今，我把博客搬到了github的jekyll博客平台，没有很多的主题，甚至可以说少得可怜，插件也不多。</p>
 
-<p>oh my god</p>
+<p>为什么？</p>
 
-<h3 id='id1'>什么情况</h3>
-            </div>
-            
-            <div class="entry-content hide">
-                <p>我是描述性的东东，作为文章简介存在</p>
-                <a href="/life/2013/05/23/i-am-a-test" class="more-link">Continue Reading &rarr;</a>
+<p>自从去年开始尝试着用 <code>有着程序员的fackbook之称的github</code> 托管代码，此后一发不可收拾，将我以前所写和正在写的项目通通搬上去。</p>
+
+<p>不怕人家笑话，在这之前，我开发都用360云盘同步代码，公司家里两头传，有时候也会用U盘，一开始倒也不觉得麻烦，后来要写的东西慢慢变多了起来，顿时觉得有必要整理一翻了。</p>
+
+<p>其实之前很早就对github有所耳闻，人气相当旺，很多开源项目都用它来托管代码，而我对时下流行的web技术也有很多的兴趣，常常会被引到github，对它的关注越来越多也有这方面原因。</p>
+
+<p>而让我下定决心转到github上的却是webstorm，很适合前端开发以及web开发人员，非常棒，正如它的名字中的 <code>web</code> 字眼，它是为web开发人员（在下认为前端应该属于web开发之列）量身定做的 一款相当精致的IDE，对Javascript，jQuery，Nodejs等的支持无所不包，我是直到去年看到同事在用之后才接触到，相见恨晚！此后一发不收拾（貌似这是第2次用这个词了），因为webstorm并 没有提供汉化版，而我的英语词汇量并不能支持我全部看懂它&#8230;，我便用最原始的方法，挨个去点它的功能菜单，算是熟悉过程，发现了很多让我惊喜的功能，其中之一就是对git的无缝对接，以及 对Nodejs强劲的支持，完全可以脱离CMD了。</p>
+
+<p>想到我以前，从Dreamweaver到Nodepad++, 内牛满面，说多了都是泪&#8230; 我只能这么来比喻——webstorm就像是我失散多年的亲兄弟，它让我重新找到了写代码的快感。</p>
+
+<p>总之，灰常喜欢，爱深深了。</p>
+
+<p>俗话说，工欲善其事，必先得其器，还是很有道理的。</p>
+
+<p>有了webstorm这个好装备，checkout，提交，更新等等操作都不再繁琐，有句话叫什么——妥妥的。</p>
+
+<p>如果说有了好装备是一个原因，那另外这个是最重要的，就是 <code>用Markdown写文章</code>。我只需要关注我要写的内容，并且格式定义简单，混久了github(github上面介绍之类的文档都是用markdown语法) 也渐渐喜欢上了这种小清新的文档格式了。</p>
+
+<p>加上webstorm的良好支持，写好文章之后直接push，之后的就交给github吧，而且还免费，这是多么好的一件事。</p>
             </div>
             
         </article>

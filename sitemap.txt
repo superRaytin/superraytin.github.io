@@ -1,14 +1,14 @@
 
-http://superRaytin.github.io/archive.html
-http://superRaytin.github.io/atom.xml
-http://superRaytin.github.io/categories.html
-http://superRaytin.github.io/index.html
-http://superRaytin.github.io/life.html
-http://superRaytin.github.io/pages.html
-http://superRaytin.github.io/rss.xml
-http://superRaytin.github.io/sitemap.txt
-http://superRaytin.github.io/tags.html
+http://a.jsfor.com/archive.html
+http://a.jsfor.com/atom.xml
+http://a.jsfor.com/categories.html
+http://a.jsfor.com/index.html
+http://a.jsfor.com/life.html
+http://a.jsfor.com/pages.html
+http://a.jsfor.com/rss.xml
+http://a.jsfor.com/sitemap.txt
+http://a.jsfor.com/tags.html
 
-http://superRaytin.github.io/skill/2013/09/07/jekyll-local-structures-notes
-http://superRaytin.github.io/story/2013/05/30/jia-lan-yu
-http://superRaytin.github.io/life/2013/05/23/i-am-a-test
+http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes
+http://a.jsfor.com/story/2013/05/30/jia-lan-yu
+http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress

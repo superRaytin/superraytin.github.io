@@ -46,16 +46,15 @@
 
                         <section class="aboutme">
                             <p>
-                                技术宅拯救世界。
+                                Hi，我是柳裟，我目前在杭州，主要做前端开发的工作，兴趣于Web开发技术，这是我的博客，所记载偏技术，但可灵感可生活，我喜欢和聪明的人打交道。
                             </p>
                         </section>
                     </nav>
                     <nav id="sub-nav">
                         <div class="social">
-                            <a class="google" href="https://plus.google.com/109764126807838271120?rel=author" title="Google+">Google+</a>
-                            <a class="twitter" href="http://twitter.com/leostatic" title="Twitter">Twitter</a>
-                            <a class="github" href="https://github.com/shashankmehta" title="GitHub">GitHub</a>
-                            <a class="rss" href="http://feeds.feedburner.com/shashankmehta" title="RSS">RSS</a>
+                            <a class="twitter" href="" title="暂时没有">Twitter</a>
+                            <a class="github" href="https://github.com/superRaytin" title="GitHub">GitHub</a>
+                            <a class="rss" href="/rss.xml" title="RSS">RSS</a>
                         </div>
                     </nav>
                 </header>
@@ -69,7 +68,7 @@
 <article class="post markdown-body">
     <h1 class="title1">windows下本地jekyll博客搭建手记</h1>
     <div class="entry">
-        <h3 id='id2'>前言</h3>
+        <h3 id='id1'>前言</h3>
 
 <p>准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行 的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。</p>
 
@@ -77,7 +76,7 @@
 
 <p>直接到 <a href='http://rubyinstaller.org/downloads/'>rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
 
-<h3 id='id3'>配置</h3>
+<h3 id='id2'>配置</h3>
 
 <p>a. 打开CMD，运行以下命令：</p>
 
@@ -97,13 +96,13 @@ ruby dk.rb install</code></pre>
 
 <pre><code>gem install rdiscount</code></pre>
 
-<h3 id='id4'>运行</h3>
+<h3 id='id3'>运行</h3>
 
 <p>cd 到工程目录，目前网上大部分教程说的启动服务命令 <code>jekyll --serve</code> 都已过时，正确的应该是：</p>
 
 <pre><code>jekyll serve</code></pre>
 
-<h3 id='id5'>中文支持异常情况</h3>
+<h3 id='id4'>中文支持异常情况</h3>
 
 <p>你可能会遇到下面这种情况：</p>
 
@@ -129,7 +128,7 @@ on file(s). Use the --watch/-w command-line option instead.
 kill/2011-12-29-jekyll-introduction.md
 error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
-<h3 id='id6'>目前网上流传的一些解决办法</h3>
+<h3 id='id5'>目前网上流传的一些解决办法</h3>
 
 <ol>
 <li><a href='http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/'>http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</li>
@@ -163,7 +162,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
 <p>前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。</p>
 
-<h3 id='id7'>终极解决办法</h3>
+<h3 id='id6'>终极解决办法</h3>
 
 <p>解决第一种错误——打开路径 <code>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll</code>，打开 <code>convertible.rb</code></p>
 
@@ -187,13 +186,13 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
 <p>重启jekyll服务，编译成功。</p>
 
-<h3 id='id8'>参考资料</h3>
+<h3 id='id7'>参考资料</h3>
 
 <p><a href='http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/'>http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
 
 <p><a href='http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html'>http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
 
-<h3 id='id9'>其他</h3>
+<h3 id='id8'>其他</h3>
 
 <p>jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 <code>jekyll serve</code>。</p>
 
@@ -223,11 +222,14 @@ pause</code></pre>
 <script type="text/javascript" charset="utf-8">
     var disqus_url = "http://superraytin.github.com/skill/2013/09/07/jekyll-local-structures-notes";
 </script>
+
+<!--
 <p>
     <span class="showComment" id="J-showComment">comments ↓</span>
 </p>
 <div id="disqus_thread" class="height0"></div>
-<script type="text/javascript" src="/assets/themes/twitter/js/common.js"></script>
+-->
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'raytinspace'; // required: replace example with your forum shortname
