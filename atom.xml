@@ -4,7 +4,7 @@
  <title>柳裟</title>
  <link href="http://superRaytin.github.io/" rel="self"/>
  <link href="http://superRaytin.github.io"/>
- <updated>2013-09-08T23:27:17+08:00</updated>
+ <updated>2013-09-09T10:48:16+08:00</updated>
  <id>http://superRaytin.github.io</id>
  <author>
    <name>柳裟</name>
@@ -23,7 +23,7 @@
 
 &lt;h3 id=&#39;rubydevkit&#39;&gt;安装Ruby环境和DevKit&lt;/h3&gt;
 
-&lt;p&gt;直接到rubyInstaller官网下载，目前最新的版本分别是 &lt;code&gt;Ruby 2.0.0-p247 (x64)&lt;/code&gt; 和 &lt;code&gt;DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe&lt;/code&gt; ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 &lt;code&gt;C:\Ruby&lt;/code&gt; ,ruby安装成功之后安装DevKit，同样解压至 &lt;code&gt;C:\DevKit&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;直接到 &lt;a href=&#39;http://rubyinstaller.org/downloads/&#39;&gt;rubyInstaller&lt;/a&gt; 官网下载，目前最新的版本分别是 &lt;code&gt;Ruby 2.0.0-p247 (x64)&lt;/code&gt; 和 &lt;code&gt;DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe&lt;/code&gt; ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 &lt;code&gt;C:\Ruby&lt;/code&gt; ,ruby安装成功之后安装DevKit，同样解压至 &lt;code&gt;C:\DevKit&lt;/code&gt; 。&lt;/p&gt;
 
 &lt;h3 id=&#39;id3&#39;&gt;配置&lt;/h3&gt;
 
@@ -80,7 +80,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&
 &lt;h3 id=&#39;id6&#39;&gt;目前网上流传的一些解决办法&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/&lt;/code&gt; 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/&#39;&gt;http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/&lt;/a&gt; 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
@@ -94,7 +94,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&
 &lt;p&gt;这种方法经过测试并不能解决问题。&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;http://www.dewen.org/q/5893&lt;/code&gt; 给出的解决办法：&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;http://www.dewen.org/q/5893&#39;&gt;http://www.dewen.org/q/5893&lt;/a&gt; 给出的解决办法：&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;a: 在文件头加上&lt;/p&gt;
@@ -137,9 +137,29 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace&lt;/code&gt;&
 
 &lt;h3 id=&#39;id8&#39;&gt;参考资料&lt;/h3&gt;
 
-&lt;p&gt;http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#39;http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/&#39;&gt;http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html&lt;/p&gt;</content>
+&lt;p&gt;&lt;a href=&#39;http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html&#39;&gt;http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#39;id9&#39;&gt;其他&lt;/h3&gt;
+
+&lt;p&gt;jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 &lt;code&gt;jekyll serve&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;是不是觉得有点繁琐呢？&lt;/p&gt;
+
+&lt;p&gt;反正我是觉得很烦，这里写了个短小的批处理文件，可以当作是一键启动服务的开关，打开记事本，将下面的命令行拖到里面保存为 &lt;code&gt;.bat&lt;/code&gt; 文件，放到桌面上，以后双击即可启动服务。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@echo
+cd D:\WebstormProjects\jekyllBlog
+D:
+jekyll serve
+pause&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第二行填写工程目录，第三行对应第二行的盘符——为什么这么做呢，因为直接 cd路径之后，必须要再运行相应的盘符才能到达工程目录，不信你可以试试。&lt;/p&gt;
+
+&lt;p&gt;批处理文件执行效果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#39;jekyll-local&#39; src=&#39;/assets/posts/images/jekyll-local-1.png&#39; /&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>

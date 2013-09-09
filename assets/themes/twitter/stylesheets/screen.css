@@ -1642,7 +1642,8 @@ a {
 	color:#2571b8
 }
 a:hover {
-	color:#2571b8
+	color:#2571b8;
+    text-decoration: underline;
 }
 @media screen and (max-width:1040px) {
 	body {

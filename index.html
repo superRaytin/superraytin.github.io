@@ -103,7 +103,7 @@
 
 <h3 id='rubydevkit'>安装Ruby环境和DevKit</h3>
 
-<p>直接到rubyInstaller官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
+<p>直接到 <a href='http://rubyinstaller.org/downloads/'>rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
 
 <h3 id='id3'>配置</h3>
 
@@ -160,7 +160,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 <h3 id='id6'>目前网上流传的一些解决办法</h3>
 
 <ol>
-<li><code>http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</code> 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</li>
+<li><a href='http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/'>http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</li>
 </ol>
 
 <blockquote>
@@ -174,7 +174,7 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 <p>这种方法经过测试并不能解决问题。</p>
 
 <ol>
-<li><code>http://www.dewen.org/q/5893</code> 给出的解决办法：</li>
+<li><a href='http://www.dewen.org/q/5893'>http://www.dewen.org/q/5893</a> 给出的解决办法：</li>
 </ol>
 
 <p>a: 在文件头加上</p>
@@ -217,9 +217,29 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 
 <h3 id='id8'>参考资料</h3>
 
-<p>http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</p>
+<p><a href='http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/'>http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
 
-<p>http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</p>
+<p><a href='http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html'>http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
+
+<h3 id='id9'>其他</h3>
+
+<p>jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 <code>jekyll serve</code>。</p>
+
+<p>是不是觉得有点繁琐呢？</p>
+
+<p>反正我是觉得很烦，这里写了个短小的批处理文件，可以当作是一键启动服务的开关，打开记事本，将下面的命令行拖到里面保存为 <code>.bat</code> 文件，放到桌面上，以后双击即可启动服务。</p>
+
+<pre><code>@echo
+cd D:\WebstormProjects\jekyllBlog
+D:
+jekyll serve
+pause</code></pre>
+
+<p>第二行填写工程目录，第三行对应第二行的盘符——为什么这么做呢，因为直接 cd路径之后，必须要再运行相应的盘符才能到达工程目录，不信你可以试试。</p>
+
+<p>批处理文件执行效果：</p>
+
+<p><img alt='jekyll-local' src='/assets/posts/images/jekyll-local-1.png' /></p>
             </div>
             
         </article>
