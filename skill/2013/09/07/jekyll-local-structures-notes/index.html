@@ -65,44 +65,71 @@
             <div class="mid-col-container">
                 <div id="content" class="inner">
                         
-<article class="post markdown-body">
-    <h1 class="title1">windows下本地jekyll博客搭建手记</h1>
-    <div class="entry">
-        <h3 id='id1'>前言</h3>
+<article class="post">
+    <div class="meta">
+        <div class="date">
+            <time datetime='' data-updated="true" itemprop="datePublished">2013-09-07</time>
+        </div>
+        
+        <div class="tags">
+            
+            
 
-<p>准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行 的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。</p>
 
-<h3 id='rubydevkit'>安装Ruby环境和DevKit</h3>
+  
+     
+    	<a class="category" href="/tags.html#jekyll-ref">jekyll</a>&nbsp;
+    
+  
 
-<p>直接到 <a href='http://rubyinstaller.org/downloads/'>rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
 
-<h3 id='id2'>配置</h3>
 
-<p>a. 打开CMD，运行以下命令：</p>
+        </div>
+        
+    </div>
+    <h1 class="title">windows下本地jekyll博客搭建手记</h1>
+    <div class="entry markdown-body">
+        <h3>前言</h3>
+
+<p>准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行
+的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。</p>
+
+<h3>安装Ruby环境和DevKit</h3>
+
+<p>直接到 <a href="http://rubyinstaller.org/downloads/">rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本，
+先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
+
+<h3>配置</h3>
+
+<p>a.打开CMD，运行以下命令：</p>
 
 <pre><code>cd C:\DevKit
 
 ruby dk.rb init
 
-ruby dk.rb install</code></pre>
+ruby dk.rb install
+</code></pre>
 
-<p>b. 完成之后安装jekyll：</p>
+<p>b.完成之后安装jekyll：</p>
 
-<pre><code>gem install jekyll</code></pre>
+<pre><code>gem install jekyll
+</code></pre>
 
 <p>可以用 <code>jekyll --version</code> 来检查是否安装成功</p>
 
-<p>c. 安装rdiscount，这个是用来解析Markdown标记的解析包。</p>
+<p>c.安装rdiscount，这个是用来解析Markdown标记的解析包。</p>
 
-<pre><code>gem install rdiscount</code></pre>
+<pre><code>gem install rdiscount
+</code></pre>
 
-<h3 id='id3'>运行</h3>
+<h3>运行</h3>
 
 <p>cd 到工程目录，目前网上大部分教程说的启动服务命令 <code>jekyll --serve</code> 都已过时，正确的应该是：</p>
 
-<pre><code>jekyll serve</code></pre>
+<pre><code>jekyll serve
+</code></pre>
 
-<h3 id='id4'>中文支持异常情况</h3>
+<h3>中文支持异常情况</h3>
 
 <p>你可能会遇到下面这种情况：</p>
 
@@ -114,7 +141,8 @@ on file(s). Use the --watch/-w command-line option instead.
        Destination: D:/WebstormProjects/superraytin.github.com/_site
       Generating... Error reading file D:/WebstormProjects/superraytin.github.co
 m/_posts/life/2013-05-23-i-am-a-test.md: invalid byte sequence in GBK
-error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
+error: invalid byte sequence in GBK. Use --trace to view backtrace
+</code></pre>
 
 <p>或者下面这种情况</p>
 
@@ -126,73 +154,84 @@ on file(s). Use the --watch/-w command-line option instead.
        Destination: D:/WebstormProjects/superraytin.github.com/_site
       Generating...   Liquid Exception: invalid byte sequence in GBK in _posts/s
 kill/2011-12-29-jekyll-introduction.md
-error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
+error: invalid byte sequence in GBK. Use --trace to view backtrace
+</code></pre>
 
-<h3 id='id5'>目前网上流传的一些解决办法</h3>
+<h3>目前网上流传的一些解决办法</h3>
 
-<ol>
-<li><a href='http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/'>http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</li>
-</ol>
+<p>1.<a href="http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/">http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法：
+修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</p>
 
-<blockquote>
-<p>set LC_ALL=en_US.UTF-8</p>
-</blockquote>
+<blockquote><p>set LC_ALL=en_US.UTF-8</p>
 
-<blockquote>
-<p>set LANG=en_US.UTF-8</p>
-</blockquote>
+<p>set LANG=en_US.UTF-8</p></blockquote>
 
 <p>这种方法经过测试并不能解决问题。</p>
 
-<ol>
-<li><a href='http://www.dewen.org/q/5893'>http://www.dewen.org/q/5893</a> 给出的解决办法：</li>
-</ol>
+<p>2.<a href="http://www.dewen.org/q/5893">http://www.dewen.org/q/5893</a> 给出的解决办法：</p>
 
 <p>a: 在文件头加上</p>
 
-<pre><code># -*- coding:utf-8 -*-</code></pre>
+<pre><code># -*- coding:utf-8 -*-
+</code></pre>
 
 <p>指定运行环境的编码</p>
 
-<pre><code>ruby --encoding=utf-8</code></pre>
+<pre><code>ruby --encoding=utf-8
+</code></pre>
 
 <p>b: 运行</p>
 
-<pre><code>chcp 65001</code></pre>
+<pre><code>chcp 65001
+</code></pre>
 
 <p>前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。</p>
 
-<h3 id='id6'>终极解决办法</h3>
+<h3>终极解决办法</h3>
 
 <p>解决第一种错误——打开路径 <code>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll</code>，打开 <code>convertible.rb</code></p>
 
 <p>找到：</p>
 
-<pre><code>self.content = File.read(File.join(base, name))</code></pre>
+<pre><code>self.content = File.read(File.join(base, name))
+</code></pre>
 
 <p>替换成：</p>
 
-<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; &quot;utf-8&quot;)</code></pre>
+<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")
+</code></pre>
 
 <p>解决第二种错误——打开路径 <code>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll\tags</code>，打开 <code>include.rb</code></p>
 
 <p>找到：</p>
 
-<pre><code>source = File.read(File.join(includes_dir, @file))</code></pre>
+<pre><code>source = File.read(File.join(includes_dir, @file))
+</code></pre>
 
 <p>替换成：</p>
 
-<pre><code>source = File.read(File.join(includes_dir, @file), :encoding =&gt; &quot;utf-8&quot;)</code></pre>
+<pre><code>source = File.read(File.join(includes_dir, @file), :encoding =&gt; "utf-8")
+</code></pre>
 
 <p>重启jekyll服务，编译成功。</p>
 
-<h3 id='id7'>参考资料</h3>
+<h3>markdown解释中文列表的问题</h3>
 
-<p><a href='http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/'>http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
+<p>jekyll默认的markdown解释引擎是maruku，在解释列表的时候，列表中有英文字符正常，否则会不正常，这种情况需要把解释引擎切换为rdiscount，
+具体方法是打开 <code>_config_yml</code> 文件，在 <code>pygments:true</code> 下面添加一行</p>
 
-<p><a href='http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html'>http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
+<pre><code>markdown: rdiscount
+</code></pre>
 
-<h3 id='id8'>其他</h3>
+<h3>参考资料</h3>
+
+<p><a href="http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/">http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
+
+<p><a href="http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html">http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
+
+<p><a href="http://cloudaice.com/markdown-list-chinese-problem/">http://cloudaice.com/markdown-list-chinese-problem/</a></p>
+
+<h3>其他</h3>
 
 <p>jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 <code>jekyll serve</code>。</p>
 
@@ -204,13 +243,15 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 cd D:\WebstormProjects\jekyllBlog
 D:
 jekyll serve
-pause</code></pre>
+pause
+</code></pre>
 
 <p>第二行填写工程目录，第三行对应第二行的盘符——为什么这么做呢，因为直接 cd路径之后，必须要再运行相应的盘符才能到达工程目录，不信你可以试试。</p>
 
 <p>批处理文件执行效果：</p>
 
-<p><img alt='jekyll-local' src='/assets/posts/images/jekyll-local-1.png' /></p>
+<p><img src="/assets/posts/images/jekyll-local-1.png" alt="jekyll-local" /></p>
+
     </div>
 </article>
 

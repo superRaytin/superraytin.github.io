@@ -10,5 +10,7 @@ http://a.jsfor.com/sitemap.txt
 http://a.jsfor.com/tags.html
 
 http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes
+http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes
+http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop
 http://a.jsfor.com/story/2013/05/30/jia-lan-yu
 http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress

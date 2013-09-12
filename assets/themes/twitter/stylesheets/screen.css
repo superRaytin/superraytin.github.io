@@ -581,7 +581,7 @@ a {
 }article h1.title {
 	font-weight:300;
 	line-height:35px;
-	margin-bottom:20px
+	margin-bottom:20px;
 }
 article h1.title a {
 	color:#666
@@ -1713,6 +1713,18 @@ article .entry-content .caption::before {
     border-bottom: 1px solid #fff;
     width: 100%;
     content: '';
+}
+
+/* index */
+.main-index article h1.title, .post h1.title{
+    background: url('/assets/themes/twitter/images/ico_hand.gif') 0 center no-repeat;
+    padding-left: 2em;
+}
+.main-index article{
+    border-width: 4px;
+}
+.main-index article:last-child{
+    border-width: 1px;
 }
 
 .hide{

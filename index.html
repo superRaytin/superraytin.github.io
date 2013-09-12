@@ -65,12 +65,10 @@
             <div class="mid-col-container">
                 <div id="content" class="inner">
                         
-<div class="row-fluid">
-  <div class="span12">
-    
+
 
 <div class="posts">
-    <div class="posts-item">
+    <div class="posts-item main-index">
         
         <article class="post">
             <div class="meta">
@@ -96,41 +94,47 @@
             </div>
             <h1 class="title"><a href="/skill/2013/09/07/jekyll-local-structures-notes">windows下本地jekyll博客搭建手记</a></h1>
             <div class="markdown-body">
-                <h3 id='id1'>前言</h3>
+                <h3>前言</h3>
 
-<p>准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行 的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。</p>
+<p>准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行
+的方法，暂且放下网上教程们中要求的ruby，devkit版本，今天发现直接全部用最新的版本，也是可以的。</p>
 
-<h3 id='rubydevkit'>安装Ruby环境和DevKit</h3>
+<h3>安装Ruby环境和DevKit</h3>
 
-<p>直接到 <a href='http://rubyinstaller.org/downloads/'>rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本， 先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
+<p>直接到 <a href="http://rubyinstaller.org/downloads/">rubyInstaller</a> 官网下载，目前最新的版本分别是 <code>Ruby 2.0.0-p247 (x64)</code> 和 <code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code> ，我的系统是64位，32位的话选择对应版本，
+先安装Ruby环境，注意，必须先安装Ruby环境，为免混乱，可以解压至 <code>C:\Ruby</code> ,ruby安装成功之后安装DevKit，同样解压至 <code>C:\DevKit</code> 。</p>
 
-<h3 id='id2'>配置</h3>
+<h3>配置</h3>
 
-<p>a. 打开CMD，运行以下命令：</p>
+<p>a.打开CMD，运行以下命令：</p>
 
 <pre><code>cd C:\DevKit
 
 ruby dk.rb init
 
-ruby dk.rb install</code></pre>
+ruby dk.rb install
+</code></pre>
 
-<p>b. 完成之后安装jekyll：</p>
+<p>b.完成之后安装jekyll：</p>
 
-<pre><code>gem install jekyll</code></pre>
+<pre><code>gem install jekyll
+</code></pre>
 
 <p>可以用 <code>jekyll --version</code> 来检查是否安装成功</p>
 
-<p>c. 安装rdiscount，这个是用来解析Markdown标记的解析包。</p>
+<p>c.安装rdiscount，这个是用来解析Markdown标记的解析包。</p>
 
-<pre><code>gem install rdiscount</code></pre>
+<pre><code>gem install rdiscount
+</code></pre>
 
-<h3 id='id3'>运行</h3>
+<h3>运行</h3>
 
 <p>cd 到工程目录，目前网上大部分教程说的启动服务命令 <code>jekyll --serve</code> 都已过时，正确的应该是：</p>
 
-<pre><code>jekyll serve</code></pre>
+<pre><code>jekyll serve
+</code></pre>
 
-<h3 id='id4'>中文支持异常情况</h3>
+<h3>中文支持异常情况</h3>
 
 <p>你可能会遇到下面这种情况：</p>
 
@@ -142,7 +146,8 @@ on file(s). Use the --watch/-w command-line option instead.
        Destination: D:/WebstormProjects/superraytin.github.com/_site
       Generating... Error reading file D:/WebstormProjects/superraytin.github.co
 m/_posts/life/2013-05-23-i-am-a-test.md: invalid byte sequence in GBK
-error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
+error: invalid byte sequence in GBK. Use --trace to view backtrace
+</code></pre>
 
 <p>或者下面这种情况</p>
 
@@ -154,73 +159,84 @@ on file(s). Use the --watch/-w command-line option instead.
        Destination: D:/WebstormProjects/superraytin.github.com/_site
       Generating...   Liquid Exception: invalid byte sequence in GBK in _posts/s
 kill/2011-12-29-jekyll-introduction.md
-error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
+error: invalid byte sequence in GBK. Use --trace to view backtrace
+</code></pre>
 
-<h3 id='id5'>目前网上流传的一些解决办法</h3>
+<h3>目前网上流传的一些解决办法</h3>
 
-<ol>
-<li><a href='http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/'>http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法： 修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</li>
-</ol>
+<p>1.<a href="http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/">http://yanping.me/cn/blog/2012/10/09/chinese-charset-problems-with-jekyll/</a> 这篇文章给出的解决办法：
+修改bash的字符集：在C:\Documents and Settings\用户名下，找到文件.bash_profile，后面加两行:</p>
 
-<blockquote>
-<p>set LC_ALL=en_US.UTF-8</p>
-</blockquote>
+<blockquote><p>set LC_ALL=en_US.UTF-8</p>
 
-<blockquote>
-<p>set LANG=en_US.UTF-8</p>
-</blockquote>
+<p>set LANG=en_US.UTF-8</p></blockquote>
 
 <p>这种方法经过测试并不能解决问题。</p>
 
-<ol>
-<li><a href='http://www.dewen.org/q/5893'>http://www.dewen.org/q/5893</a> 给出的解决办法：</li>
-</ol>
+<p>2.<a href="http://www.dewen.org/q/5893">http://www.dewen.org/q/5893</a> 给出的解决办法：</p>
 
 <p>a: 在文件头加上</p>
 
-<pre><code># -*- coding:utf-8 -*-</code></pre>
+<pre><code># -*- coding:utf-8 -*-
+</code></pre>
 
 <p>指定运行环境的编码</p>
 
-<pre><code>ruby --encoding=utf-8</code></pre>
+<pre><code>ruby --encoding=utf-8
+</code></pre>
 
 <p>b: 运行</p>
 
-<pre><code>chcp 65001</code></pre>
+<pre><code>chcp 65001
+</code></pre>
 
 <p>前面一种直接无效，后面一种可以起到短暂的效果，但是会有部分功能失效的问题，并且文章打开丢失了模板的头尾，只剩下乱码的文章主体部分。</p>
 
-<h3 id='id6'>终极解决办法</h3>
+<h3>终极解决办法</h3>
 
 <p>解决第一种错误——打开路径 <code>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll</code>，打开 <code>convertible.rb</code></p>
 
 <p>找到：</p>
 
-<pre><code>self.content = File.read(File.join(base, name))</code></pre>
+<pre><code>self.content = File.read(File.join(base, name))
+</code></pre>
 
 <p>替换成：</p>
 
-<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; &quot;utf-8&quot;)</code></pre>
+<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")
+</code></pre>
 
 <p>解决第二种错误——打开路径 <code>C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\jekyll-1.2.0\lib\jekyll\tags</code>，打开 <code>include.rb</code></p>
 
 <p>找到：</p>
 
-<pre><code>source = File.read(File.join(includes_dir, @file))</code></pre>
+<pre><code>source = File.read(File.join(includes_dir, @file))
+</code></pre>
 
 <p>替换成：</p>
 
-<pre><code>source = File.read(File.join(includes_dir, @file), :encoding =&gt; &quot;utf-8&quot;)</code></pre>
+<pre><code>source = File.read(File.join(includes_dir, @file), :encoding =&gt; "utf-8")
+</code></pre>
 
 <p>重启jekyll服务，编译成功。</p>
 
-<h3 id='id7'>参考资料</h3>
+<h3>markdown解释中文列表的问题</h3>
 
-<p><a href='http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/'>http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
+<p>jekyll默认的markdown解释引擎是maruku，在解释列表的时候，列表中有英文字符正常，否则会不正常，这种情况需要把解释引擎切换为rdiscount，
+具体方法是打开 <code>_config_yml</code> 文件，在 <code>pygments:true</code> 下面添加一行</p>
 
-<p><a href='http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html'>http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
+<pre><code>markdown: rdiscount
+</code></pre>
 
-<h3 id='id8'>其他</h3>
+<h3>参考资料</h3>
+
+<p><a href="http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/">http://log.medcl.net/item/2012/04/jekyll-encounter-encoding-problems/</a></p>
+
+<p><a href="http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html">http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html</a></p>
+
+<p><a href="http://cloudaice.com/markdown-list-chinese-problem/">http://cloudaice.com/markdown-list-chinese-problem/</a></p>
+
+<h3>其他</h3>
 
 <p>jekyll环境搭好之后，每次启动服务都需要cd到工程目录，然后运行命令 <code>jekyll serve</code>。</p>
 
@@ -232,13 +248,142 @@ error: invalid byte sequence in GBK. Use --trace to view backtrace</code></pre>
 cd D:\WebstormProjects\jekyllBlog
 D:
 jekyll serve
-pause</code></pre>
+pause
+</code></pre>
 
 <p>第二行填写工程目录，第三行对应第二行的盘符——为什么这么做呢，因为直接 cd路径之后，必须要再运行相应的盘符才能到达工程目录，不信你可以试试。</p>
 
 <p>批处理文件执行效果：</p>
 
-<p><img alt='jekyll-local' src='/assets/posts/images/jekyll-local-1.png' /></p>
+<p><img src="/assets/posts/images/jekyll-local-1.png" alt="jekyll-local" /></p>
+
+            </div>
+            
+        </article>
+        
+        <article class="post">
+            <div class="meta">
+                <div class="date">
+                    <time datetime='2013-08-23' data-updated="true" itemprop="datePublished">2013-08-23</time>
+                </div>
+                
+                <div class="tags">
+                    
+                    
+
+
+  
+     
+    	<a class="category" href="/tags.html#node-webkit-ref">node-webkit</a>&nbsp;
+    
+  
+
+
+
+                </div>
+                
+            </div>
+            <h1 class="title"><a href="/skill/2013/08/23/rock-markdown-editor-develop-notes">Rock! Markdown编辑器开发手记</a></h1>
+            <div class="markdown-body">
+                <h2>前言</h2>
+
+<p>因为每周都要写周报，用markdown写文档是我的首选，不只是因为它的简洁高效，排版。公司办公电脑大都是win7系统，而windows平台markdown编辑器不多，其中功能比较好的当属markdownpad了，可打开速度每次都要让我菊花一紧，界面更谈不上美观，
+没用多久便卸载了，转到在线编辑器，一个不错的就是 <code>http://mahua.jser.me</code>，体验还不错，在线编辑器虽然方便，却也有其局限性，如果既能写文档，也能将本地众多的md文档管理起来，写完之后还能直接发邮件，想想多么酷~！
+再加上之前接触到 <a href="https://github.com/rogerwang/node-webkit">Node-webkit</a> ，于是萌生了自己写一个编辑器的想法。</p>
+
+<p>如果你不了解Node-webkit是什么，可以在网上搜一下资料，也可看看 <a href="/skill/2013/07/15/node-webkit-desktop-app-develop/">以web的方式写桌面程序——Node-Webkit</a></p>
+
+<h2>最终的界面</h2>
+
+<p><img src="/assets/posts/images/rock-markdown-1.png" alt="Rock MarkDown Editor" /></p>
+
+<h2>功能分布</h2>
+
+<p>编辑器的布局从上到下：</p>
+
+<ul>
+<li>菜单栏</li>
+<li>工具栏</li>
+<li>标签栏</li>
+<li>编辑区</li>
+<li>预览区</li>
+<li>状态栏</li>
+</ul>
+
+
+<p>布局上借鉴了markdownpad，菜单栏的实现主要借助了Node-webkit（以下简称nw）的 <code>Menu</code> API，用法很简单：</p>
+
+<pre><code>var gui = require('nw.gui');
+var fileMenu = new gui.Menu();
+fileMenu.append({
+    label: '新建文档 (Ctrl+N)',
+    click: function(){
+        ...
+    }
+});
+</code></pre>
+
+<p>菜单栏包含了整个编辑器所有的功能。</p>
+
+<p>工具栏提供一些常用功能的快捷调用。</p>
+
+<p>状态栏显示当前文档的信息。</p>
+
+<h2>用到的库</h2>
+
+<p>编辑区用的是 <code>codemirror</code>，关于 <a href="http://codemirror.net">codeMirror</a>：</p>
+
+<blockquote><p>CodeMirror 是一款“Online Source Editor”，基于Javascript，短小精悍，实时在线代码高亮显示，他不是某个富文本编辑器的附属产品，他是许多大名鼎鼎的在线代码编辑器的基础库。</p></blockquote>
+
+<p>解释markdown标记用到 <a href="https://github.com/coreyti/showdown">showdown</a></p>
+
+<p>邮件发送直接用Node第三方模块 <code>Node-mailer</code> 速度非常快。</p>
+
+<p>标签功能</p>
+
+            </div>
+            
+        </article>
+        
+        <article class="post">
+            <div class="meta">
+                <div class="date">
+                    <time datetime='2013-07-15' data-updated="true" itemprop="datePublished">2013-07-15</time>
+                </div>
+                
+                <div class="tags">
+                    
+                    
+
+
+  
+     
+    	<a class="category" href="/tags.html#node-webkit-ref">node-webkit</a>&nbsp;
+    
+  
+
+
+
+                </div>
+                
+            </div>
+            <h1 class="title"><a href="/skill/2013/07/15/node-webkit-desktop-app-develop">以web的方式写桌面程序——Node-Webkit</a></h1>
+            <div class="markdown-body">
+                <p>Node的火热程度即使我不说，想来你也听说过很多次了，这里必须要说说Node平台迅速崛起的一匹黑马 —— Node-webkit，其实也不能说是归属Node平台，因为它并不是作为Node的模块存在——虽然作者也曾尝试这么干过， 像我一样许许多多曾被它名字的误导的朋友可以醒醒了，
+如果你还不清楚这是个什么东东，下面引述一段网上的介绍：</p>
+
+<blockquote><p>node-webkit是一个支持跨操作系统（Windows，Linux，MacOS）的利用流行的Web技术（Node.JS, JavaScript，HTML5）来编写应用程序的平台。应用程序开发人员可以轻松的利用Web技术来实现各种应用程序。node-webkit性能和特色已经让它成为当今世界领先的web技术应用程序平台。</p></blockquote>
+
+<p>官方的解释是<code>Web应用程序运行时环境</code>，简单来说就是，你可以利用你所知道的几乎所有web技术来构建本地应用程序，HTML5, JS, Nodejs, jQuery等等。</p>
+
+<p>如果你正好是一名<code>Web开发人员</code>，第一次听到这样的介绍——那么你一定会为此血液沸腾的（冷血动物不算），是的，第一次接触就把我的技术三观给颠覆了，这就像是哥伦布发现新大陆时的心情——除了激动还是激动，作为一名Jser，新大陆就是从未接触过的桌面程序开发领域，
+载着我向新大陆前进的则是Node-webkit！第一次感觉Javascript如此强大，就像 $美元，通向世界。</p>
+
+<p>能想到将Node和webkit这两个一般人认为无交集的项目合在一起，不得不佩服作者的创意，使用Node-webkit开发本地程序，除了可以尽情地使用第三方Node模块，作者还封装了一层，调用系统级别的API，剪贴板，程序窗口，系统托盘，文件对话框及Shell，现在来看，与本地UI交互的
+API数量还有些少，可能也有安全层面的考虑吧，但从现在项目的更新频率来看，相信以后会越来越强大的。</p>
+
+<p>Node-webkit的github主页：<a href="https://github.com/rogerwang/node-webkit">https://github.com/rogerwang/node-webkit</a></p>
+
             </div>
             
         </article>
@@ -254,7 +399,7 @@ pause</code></pre>
             <div class="markdown-body">
                 <p>南北朝时期，当时，以宋武帝刘裕为首的南朝宋，以及道武帝拓跋珪为首的北魏，那是中国历史上一段分裂的时期。公元420年开始，南北朝之间因势力扩张以及疆土兼并，战争不断，其间南朝负多胜少。公元422年，宋武帝刘裕病逝，北魏明元帝拓跋嗣大举攻宋，先后攻取金塘（洛阳）、虎牢、滑台。430年，宋文帝刘义隆收复黄河以南失地，迫使魏军主动撤退，宋相继占领滑台、洛阳、虎牢。同年，北魏全线反击，连克金塘、洛阳、虎牢、滑台。</p>
 
-<p>公元449年，拓跋焘大破柔然，之后兵指刘宋，宋文帝为阻止魏军南下，发兵北攻。由于宋文帝舍功采对，自戳良将，杀害裴方明等名将，使士气大挫，加上连年征战，国力渐衰，军中久无御敌之将，又不顾朝臣之反对，于太平真君十一年发兵攻魏，魏军后发制人，以号称百万之众强渡黄河，步步逼近，宋军无奈只得南撤，从此宋文帝再也无力争夺中原。</p>
+<p> 公元449年，拓跋焘大破柔然，之后兵指刘宋，宋文帝为阻止魏军南下，发兵北攻。由于宋文帝舍功采对，自戳良将，杀害裴方明等名将，使士气大挫，加上连年征战，国力渐衰，军中久无御敌之将，又不顾朝臣之反对，于太平真君十一年发兵攻魏，魏军后发制人，以号称百万之众强渡黄河，步步逼近，宋军无奈只得南撤，从此宋文帝再也无力争夺中原。</p>
 
 <p>公元493年，魏孝文帝拓跋宏迁都洛阳。频繁南下攻齐（479年，宋中领军将军萧道成代宋建立齐朝），至此，北魏、南齐进行了长达23年的战争……</p>
 
@@ -296,31 +441,64 @@ pause</code></pre>
 
 <p>天上的雨仍然在纷纷落下，落在禅房外那块石板之上……</p>
 
-<p>&#8230; &#8230;</p>
+<p>... ...</p>
 
 <p>公元2010年，《伽蓝雨》被谱成曲，名《烟花易冷》。</p>
 
 <p>《烟花易冷》</p>
 
-<p>繁华声 遁入空门 折煞了世人<br /> 梦偏冷 辗转一生 情债又几本<br /> 如你默认 生死枯等<br /> 枯等一圈 又一圈的 年轮<br /></p>
+<p>繁华声 遁入空门 折煞了世人<br>
+梦偏冷 辗转一生 情债又几本<br>
+如你默认 生死枯等<br>
+枯等一圈 又一圈的 年轮<br></p>
 
-<p>浮图塔 断了几层 断了谁的魂<br /> 痛直奔 一盏残灯 倾塌的山门<br /> 容我再等 历史转身<br /> 等酒香醇 等你弹 一曲古筝<br /></p>
+<p>浮图塔 断了几层 断了谁的魂<br>
+痛直奔 一盏残灯 倾塌的山门<br>
+容我再等 历史转身<br>
+等酒香醇 等你弹 一曲古筝<br></p>
 
-<p>雨纷纷 旧故里草木深<br /> 我听闻 你始终一个人<br /> 斑驳的城门 盘踞着老树根<br /> 石板上回荡的是 再等<br /></p>
+<p>雨纷纷 旧故里草木深<br>
+我听闻 你始终一个人<br>
+斑驳的城门 盘踞着老树根<br>
+石板上回荡的是 再等<br></p>
 
-<p>雨纷纷 旧故里草木深<br /> 我听闻 你仍守着孤城<br /> 城郊牧笛声 落在那座野村<br /> 缘份落地生根是 我们<br /></p>
+<p>雨纷纷 旧故里草木深<br>
+我听闻 你仍守着孤城<br>
+城郊牧笛声 落在那座野村<br>
+缘份落地生根是 我们<br></p>
 
-<p>听青春 迎来笑声 羡煞许多人<br /> 那史册 温柔不肯 下笔都太很<br /> 烟花易冷 人事易分<br /> 而你在问 我是否还 认真<br /></p>
+<p>听青春 迎来笑声 羡煞许多人<br>
+那史册 温柔不肯 下笔都太很<br>
+烟花易冷 人事易分<br>
+而你在问 我是否还 认真<br></p>
 
-<p>千年后 累世情深 还有谁在等<br /> 而青史 岂能不真 魏书洛阳城<br /> 如你在跟 前世过门<br /> 跟着红尘 跟随我 浪迹一生<br /></p>
+<p>千年后 累世情深 还有谁在等<br>
+而青史 岂能不真 魏书洛阳城<br>
+如你在跟 前世过门<br>
+跟着红尘 跟随我 浪迹一生<br></p>
 
-<p>雨纷纷 旧故里草木深<br /> 我听闻 你始终一个人<br /> 斑驳的城门 盘踞着老树根<br /> 石板上回荡的是 再等<br /></p>
+<p>雨纷纷 旧故里草木深<br>
+我听闻 你始终一个人<br>
+斑驳的城门 盘踞着老树根<br>
+石板上回荡的是 再等<br></p>
 
-<p>雨纷纷 旧故里草木深<br /> 我听闻 你仍守着孤城<br /> 城郊牧笛声 落在那座野村<br /> 缘份落地生根是 我们<br /></p>
+<p>雨纷纷 旧故里草木深<br>
+我听闻 你仍守着孤城<br>
+城郊牧笛声 落在那座野村<br>
+缘份落地生根是 我们<br></p>
 
-<p>雨纷纷 旧故里草木深<br /> 我听闻 你始终一个人<br /> 斑驳的城门 盘踞着老树根<br /> 石板上回荡的是 再等<br /></p>
+<p>雨纷纷 旧故里草木深<br>
+我听闻 你始终一个人<br>
+斑驳的城门 盘踞着老树根<br>
+石板上回荡的是 再等<br></p>
 
-<p>雨纷纷 雨纷纷 旧故里草木深<br /> 我听闻 我听闻 你仍守着孤城<br /> 城郊牧笛声 落在那座野村<br /> 缘份落地生根是 我们<br /> 缘份落地生根是 我们<br /> 伽蓝寺听雨声盼 永恒<br /></p>
+<p>雨纷纷 雨纷纷 旧故里草木深<br>
+我听闻 我听闻 你仍守着孤城<br>
+城郊牧笛声 落在那座野村<br>
+缘份落地生根是 我们<br>
+缘份落地生根是 我们<br>
+伽蓝寺听雨声盼 永恒<br></p>
+
             </div>
             
         </article>
@@ -346,9 +524,12 @@ pause</code></pre>
 
 <p>其实之前很早就对github有所耳闻，人气相当旺，很多开源项目都用它来托管代码，而我对时下流行的web技术也有很多的兴趣，常常会被引到github，对它的关注越来越多也有这方面原因。</p>
 
-<p>而让我下定决心转到github上的却是webstorm，很适合前端开发以及web开发人员，非常棒，正如它的名字中的 <code>web</code> 字眼，它是为web开发人员（在下认为前端应该属于web开发之列）量身定做的 一款相当精致的IDE，对Javascript，jQuery，Nodejs等的支持无所不包，我是直到去年看到同事在用之后才接触到，相见恨晚！此后一发不收拾（貌似这是第2次用这个词了），因为webstorm并 没有提供汉化版，而我的英语词汇量并不能支持我全部看懂它&#8230;，我便用最原始的方法，对于不认识的功能，都点上一遍，算是熟悉过程，发现了很多让我惊喜的功能，其中之一就是对git的无缝对接，以及 对Nodejs强劲的支持，完全可以脱离CMD了。</p>
+<p>而让我下定决心转到github上的却是webstorm，很适合前端开发以及web开发人员，非常棒，正如它的名字中的 <code>web</code> 字眼，它是为web开发人员（在下认为前端应该属于web开发之列）量身定做的
+一款相当精致的IDE，对Javascript，jQuery，Nodejs等的支持无所不包，我是直到去年看到同事在用之后才接触到，相见恨晚！此后一发不收拾（貌似这是第2次用这个词了），因为webstorm并
+没有提供汉化版，而我的英语词汇量并不能支持我全部看懂它...，我便用最原始的方法，对于不认识的功能，都点上一遍，算是熟悉过程，发现了很多让我惊喜的功能，其中之一就是对git的无缝对接，以及
+对Nodejs强劲的支持，完全可以脱离CMD了。</p>
 
-<p>想到我以前，从Dreamweaver到Nodepad++, 内牛满面，说多了都是泪&#8230; 我只能这么来比喻——webstorm就像是我失散多年的亲兄弟，它让我重新找到了写代码的快感。</p>
+<p>想到我以前，从Dreamweaver到Nodepad++, 内牛满面，说多了都是泪... 我只能这么来比喻——webstorm就像是我失散多年的亲兄弟，它让我重新找到了写代码的快感。</p>
 
 <p>总之，灰常喜欢，爱深深了。</p>
 
@@ -356,16 +537,16 @@ pause</code></pre>
 
 <p>有了webstorm这个好装备，checkout，提交，更新等等操作都不再繁琐，有句话叫什么——妥妥的。</p>
 
-<p>如果说有了好装备是一个原因，那另外这个是最重要的，就是 <code>用Markdown写文章</code>。我只需要关注我要写的内容，并且格式定义简单，混久了github(github上面介绍之类的文档都是用markdown语法) 也渐渐喜欢上了这种小清新的文档格式了。</p>
+<p>如果说有了好装备是一个原因，那另外这个是最重要的，就是 <code>用Markdown写文章</code>。我只需要关注我要写的内容，并且格式定义简单，混久了github(github上面介绍之类的文档都是用markdown语法)
+也渐渐喜欢上了这种小清新的文档格式了。</p>
 
 <p>加上webstorm的良好支持，写好文章之后直接push，之后的就交给github吧，而且还免费，这是多么好的一件事。</p>
+
             </div>
             
         </article>
         
     </div>
-</div>
-  </div>
 </div>
 
 
