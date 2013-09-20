@@ -3,6 +3,7 @@ http://a.jsfor.com/archive.html
 http://a.jsfor.com/atom.xml
 http://a.jsfor.com/categories.html
 http://a.jsfor.com/index.html
+http://a.jsfor.com/lab.html
 http://a.jsfor.com/life.html
 http://a.jsfor.com/pages.html
 http://a.jsfor.com/rss.xml
@@ -12,5 +13,8 @@ http://a.jsfor.com/tags.html
 http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes
 http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes
 http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop
+http://a.jsfor.com/skill/2013/06/18/git-local-in-webstorm
 http://a.jsfor.com/story/2013/05/30/jia-lan-yu
 http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress
+http://a.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie
+http://a.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs

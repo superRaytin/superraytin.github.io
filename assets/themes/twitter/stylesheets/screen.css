@@ -59,6 +59,9 @@ a {
 .alignright {
 	float:right
 }
+.mb20{
+    margin-bottom: 20px;
+}
 .clearfix {
     *zoom:1
 }
@@ -1802,4 +1805,53 @@ article .entry-content .caption::before {
 .tag_ul li a{
     color: #666;
     font-size: 1.6em;
+}
+
+.single{
+    padding: 30px 0;
+}
+.msn-item{
+    width: 280px;
+    margin-bottom: 20px;
+    float: left;
+    background-color: #eee;
+    box-shadow: 0px 2px 3px #DDD;
+    border: 2px solid #f8f8f8;
+}
+.msn-item:hover{
+    box-shadow: 1px 1px 0px #B4B1A9;
+    border: 2px solid rgb(199, 218, 142);
+}
+.msn-item-inner{
+    padding-top: 10px;
+}
+.msn-item-inner a:hover{
+    text-decoration: underline;
+}
+.msn-item-inner img{
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+.msn-item-inner .name{
+    margin-bottom: 0.6em;
+    font-weight: bold;
+    font-size: 14px;
+}
+.msn-item-inner .desc{
+    line-height: 1.6em;
+    margin-top: 5px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #dedede;
+}
+.msn-item-inner .tag{
+    background-color: #fff;
+    padding: 2px 5px 8px 15px;
+    color: #999;
+}
+.msn-item-inner .tag strong{
+    color: #666;
+    padding-right: 5px;
 }
