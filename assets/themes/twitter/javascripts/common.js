@@ -21,8 +21,10 @@ $(function(){
                 disqus.removeClass('height0').addClass('mt20');
             });
 
-            window.onload = function(){
-                boss.masonry();
+            if($('#msn-container').length){
+                window.onload = function(){
+                    boss.masonry();
+                }
             }
         },
         init: function(){
