@@ -26,6 +26,12 @@ $(function(){
                     boss.masonry();
                 }
             }
+
+            if($('.lazy').length){
+                $('img.lazy').lazyload({
+                    effect: "fadeIn"
+                });
+            }
         },
         init: function(){
             boss.observer();

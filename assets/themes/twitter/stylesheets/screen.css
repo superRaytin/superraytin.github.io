@@ -1429,7 +1429,7 @@ html {
 }
 body {
 	background:#3D4349;
-	font-family:"Open Sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family:"Open Sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,'simsun',Arial,sans-serif;
 	height:100%;
 	color:#666
 }

@@ -4,7 +4,7 @@
  <title>柳裟</title>
  <link href="http://blog.jsfor.com/" rel="self"/>
  <link href="http://blog.jsfor.com"/>
- <updated>2013-09-21T16:04:38+08:00</updated>
+ <updated>2013-09-21T21:14:56+08:00</updated>
  <id>http://blog.jsfor.com</id>
  <author>
    <name>柳裟</name>
@@ -178,7 +178,7 @@ pause
 
 &lt;p&gt;批处理文件执行效果：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/jekyll-local-1.png&quot; alt=&quot;jekyll-local&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/jekyll-local-1.png&quot;&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -197,7 +197,7 @@ pause
 
 &lt;h2&gt;最终的界面&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/rock-markdown-1.png&quot; alt=&quot;Rock MarkDown Editor&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/rock-markdown-1.png&quot;&gt;&lt;/p&gt;
 
 &lt;h2&gt;功能分布&lt;/h2&gt;
 
@@ -325,13 +325,13 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 &lt;p&gt;c·  然后，在本地新建一个文件夹，右键 git init here，完成初始化，这时右键菜单的tortoiseGit里会出现 设置 等信息，点击设置&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/git-webstorm-1.gif&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-1.gif&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;将建好的仓库地址进行配置&lt;/p&gt;
 
 &lt;p&gt;d·  右键 git同步&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/git-webstorm-2.gif&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-2.gif&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;点击拉取&lt;/p&gt;
 
@@ -345,13 +345,13 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 &lt;p&gt;b· 打开webstorm，VCS – checkout from version control – git – 输入仓库地址，之后本地将会生成一个与仓库同名文件夹&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/git-webstorm-3.gif&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-3.gif&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/git-webstorm-3.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-3.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;c· 此时可以测试git的提交与更新，随意更新一个文件，点击工具栏上的commit changes，提交更新，成功&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/git-webstorm-4.gif&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-4.gif&quot;&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -693,7 +693,7 @@ if( !deps || !deps.length ){
 
 &lt;p&gt;依赖树如下：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-example-01.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-01.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;图1&lt;/p&gt;
 
@@ -706,7 +706,7 @@ if( !deps || !deps.length ){
 
 &lt;p&gt;模块factory触发过程如下：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-example-02.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-02.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;图2&lt;/p&gt;
 
@@ -774,7 +774,7 @@ mod.status = STATUS.READY;
 
 &lt;p&gt;为什么要先查找当前模块的依赖列表呢。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-example-03.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-03.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;图3&lt;/p&gt;
 
@@ -784,19 +784,19 @@ mod.status = STATUS.READY;
 
 &lt;p&gt;下面讲讲几种特殊回溯。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-example-04.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-04.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;图4&lt;/p&gt;
 
 &lt;p&gt;此时，lastDepMod指向A1，而非A2，&lt;code&gt;如果最后一个依赖模块已加载，则依次往前推&lt;/code&gt;，A2已加载过。 第一层依赖模块回溯点从A2往前移至A1，即A1的factory触发完可以安全地去找它的上级A了。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-example-05.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-05.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;图5&lt;/p&gt;
 
 &lt;p&gt;我们看到，A2这时候既是A的依赖模块，同时也是A3的，这时候就要控制使得A2回溯点往上是回到A3而不是A（主持人：iaLast可以上场卖萌了）， 当初设计到这里的时候，迷惑了很久该如何处理这种情况，脑细胞死伤无数啊 (╯_╰) isLast是一个数组，在解析模块依赖时标示该依赖是否是最后一个，是则表示当前为回溯点。妙啊！当时一想出来这方法，乐得洒家直拍大腿&amp;lt;(￣︶￣)&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-example-06.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-06.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;图6&lt;/p&gt;
 
@@ -843,7 +843,7 @@ if( toDepList ){
 
 &lt;p&gt;duckJS加载流程图：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/duckJS-process2.jpg&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-process2.jpg&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;限于个人知识与经验，其中代码难免有算法及效率上的不足，如果你有更好的实现思路，欢迎留言拍砖，节操奉上。&lt;/p&gt;
 

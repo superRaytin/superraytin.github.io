@@ -12,7 +12,6 @@
 
       <link href="/assets/themes/twitter/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
       <link href="/assets/themes/twitter/stylesheets/gfm.css" media="screen, projection" rel="stylesheet" type="text/css">
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
       <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
       <!--[if lt IE 9]>
@@ -255,7 +254,7 @@ pause
 
 <p>批处理文件执行效果：</p>
 
-<p><img src="/assets/posts/images/jekyll-local-1.png" alt="jekyll-local" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/jekyll-local-1.png"></p>
 
             </div>
             
@@ -295,7 +294,7 @@ pause
 
 <h2>最终的界面</h2>
 
-<p><img src="/assets/posts/images/rock-markdown-1.png" alt="Rock MarkDown Editor" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/rock-markdown-1.png"></p>
 
 <h2>功能分布</h2>
 
@@ -450,13 +449,13 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 <p>c·  然后，在本地新建一个文件夹，右键 git init here，完成初始化，这时右键菜单的tortoiseGit里会出现 设置 等信息，点击设置</p>
 
-<p><img src="/assets/posts/images/git-webstorm-1.gif" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/git-webstorm-1.gif"></p>
 
 <p>将建好的仓库地址进行配置</p>
 
 <p>d·  右键 git同步</p>
 
-<p><img src="/assets/posts/images/git-webstorm-2.gif" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/git-webstorm-2.gif"></p>
 
 <p>点击拉取</p>
 
@@ -470,13 +469,13 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 <p>b· 打开webstorm，VCS – checkout from version control – git – 输入仓库地址，之后本地将会生成一个与仓库同名文件夹</p>
 
-<p><img src="/assets/posts/images/git-webstorm-3.gif" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/git-webstorm-3.gif"></p>
 
-<p><img src="/assets/posts/images/git-webstorm-3.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/git-webstorm-3.jpg"></p>
 
 <p>c· 此时可以测试git的提交与更新，随意更新一个文件，点击工具栏上的commit changes，提交更新，成功</p>
 
-<p><img src="/assets/posts/images/git-webstorm-4.gif" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/git-webstorm-4.gif"></p>
 
             </div>
             
@@ -836,7 +835,7 @@ if( !deps || !deps.length ){
 
 <p>依赖树如下：</p>
 
-<p><img src="/assets/posts/images/duckJS-example-01.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-example-01.jpg"></p>
 
 <p>图1</p>
 
@@ -849,7 +848,7 @@ if( !deps || !deps.length ){
 
 <p>模块factory触发过程如下：</p>
 
-<p><img src="/assets/posts/images/duckJS-example-02.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-example-02.jpg"></p>
 
 <p>图2</p>
 
@@ -917,7 +916,7 @@ mod.status = STATUS.READY;
 
 <p>为什么要先查找当前模块的依赖列表呢。</p>
 
-<p><img src="/assets/posts/images/duckJS-example-03.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-example-03.jpg"></p>
 
 <p>图3</p>
 
@@ -927,19 +926,19 @@ mod.status = STATUS.READY;
 
 <p>下面讲讲几种特殊回溯。</p>
 
-<p><img src="/assets/posts/images/duckJS-example-04.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-example-04.jpg"></p>
 
 <p>图4</p>
 
 <p>此时，lastDepMod指向A1，而非A2，<code>如果最后一个依赖模块已加载，则依次往前推</code>，A2已加载过。 第一层依赖模块回溯点从A2往前移至A1，即A1的factory触发完可以安全地去找它的上级A了。</p>
 
-<p><img src="/assets/posts/images/duckJS-example-05.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-example-05.jpg"></p>
 
 <p>图5</p>
 
 <p>我们看到，A2这时候既是A的依赖模块，同时也是A3的，这时候就要控制使得A2回溯点往上是回到A3而不是A（主持人：iaLast可以上场卖萌了）， 当初设计到这里的时候，迷惑了很久该如何处理这种情况，脑细胞死伤无数啊 (╯_╰) isLast是一个数组，在解析模块依赖时标示该依赖是否是最后一个，是则表示当前为回溯点。妙啊！当时一想出来这方法，乐得洒家直拍大腿&lt;(￣︶￣)></p>
 
-<p><img src="/assets/posts/images/duckJS-example-06.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-example-06.jpg"></p>
 
 <p>图6</p>
 
@@ -986,7 +985,7 @@ if( toDepList ){
 
 <p>duckJS加载流程图：</p>
 
-<p><img src="/assets/posts/images/duckJS-process2.jpg" alt="pic" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/duckJS-process2.jpg"></p>
 
 <p>限于个人知识与经验，其中代码难免有算法及效率上的不足，如果你有更好的实现思路，欢迎留言拍砖，节操奉上。</p>
 
@@ -1108,6 +1107,8 @@ define( ['jquery'], function($){
                 Powered by <a href="http://jekyllbootstrap.com">Jekyll</a>
                 Design from <a href="http://shashankmehta.in/archive/2012/greyshade.html">Greyshade</a>
             </footer>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script src="/assets/themes/twitter/javascripts/jquery.lazyload.min.js"></script>
             <script src="/assets/themes/twitter/javascripts/common.js"></script>
         </div>
     </div>
