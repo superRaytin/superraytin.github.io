@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>柳裟</title>
- <link href="http://a.jsfor.com/" rel="self"/>
- <link href="http://a.jsfor.com"/>
- <updated>2013-09-21T15:24:15+08:00</updated>
- <id>http://a.jsfor.com</id>
+ <link href="http://blog.jsfor.com/" rel="self"/>
+ <link href="http://blog.jsfor.com"/>
+ <updated>2013-09-21T16:04:38+08:00</updated>
+ <id>http://blog.jsfor.com</id>
  <author>
    <name>柳裟</name>
    <email>superRaytin@163.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>windows下本地jekyll博客搭建手记</title>
-   <link href="http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes"/>
+   <link href="http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes"/>
    <updated>2013-09-07T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</id>
+   <id>http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</id>
    <content type="html">&lt;h3&gt;前言&lt;/h3&gt;
 
 &lt;p&gt;准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行
@@ -184,9 +184,9 @@ pause
  
  <entry>
    <title>Rock! Markdown编辑器开发手记</title>
-   <link href="http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes"/>
+   <link href="http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes"/>
    <updated>2013-08-23T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</id>
+   <id>http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</id>
    <content type="html">&lt;h2&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;因为每周都要写周报，用markdown写文档是我的首选，不只是因为它的简洁高效，排版。公司办公电脑大都是win7系统，而windows平台markdown编辑器不多，其中功能比较好的当属markdownpad了，可打开速度每次都要让我菊花一紧，界面更谈不上美观，
@@ -288,9 +288,9 @@ push到编辑器，当用户新建标签时，即在cache里开辟一个新的�
  
  <entry>
    <title>以web的方式写桌面程序——Node-Webkit</title>
-   <link href="http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop"/>
+   <link href="http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop"/>
    <updated>2013-07-15T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</id>
+   <id>http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</id>
    <content type="html">&lt;p&gt;Node的火热程度即使我不说，想来你也听说过很多次了，这里必须要说说Node平台迅速崛起的一匹黑马 —— Node-webkit，其实也不能说是归属Node平台，因为它并不是作为Node的模块存在——虽然作者也曾尝试这么干过， 像我一样许许多多曾被它名字的误导的朋友可以醒醒了，
 如果你还不清楚这是个什么东东，下面引述一段网上的介绍：&lt;/p&gt;
 
@@ -310,9 +310,9 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
  
  <entry>
    <title>git项目的本地化过程（webstorm）</title>
-   <link href="http://a.jsfor.com/skill/2013/06/18/git-local-in-webstorm"/>
+   <link href="http://blog.jsfor.com/skill/2013/06/18/git-local-in-webstorm"/>
    <updated>2013-06-18T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/06/18/git-local-in-webstorm</id>
+   <id>http://blog.jsfor.com/skill/2013/06/18/git-local-in-webstorm</id>
    <content type="html">&lt;p&gt;用github来管理多人协同开发的项目是一个不错的选择，它也是一个很棒的版本管理工具。&lt;/p&gt;
 
 &lt;h3&gt;正常过程&lt;/h3&gt;
@@ -357,9 +357,9 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
  
  <entry>
    <title>伽蓝雨</title>
-   <link href="http://a.jsfor.com/story/2013/05/30/jia-lan-yu"/>
+   <link href="http://blog.jsfor.com/story/2013/05/30/jia-lan-yu"/>
    <updated>2013-05-30T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/story/2013/05/30/jia-lan-yu</id>
+   <id>http://blog.jsfor.com/story/2013/05/30/jia-lan-yu</id>
    <content type="html">&lt;p&gt;南北朝时期，当时，以宋武帝刘裕为首的南朝宋，以及道武帝拓跋珪为首的北魏，那是中国历史上一段分裂的时期。公元420年开始，南北朝之间因势力扩张以及疆土兼并，战争不断，其间南朝负多胜少。公元422年，宋武帝刘裕病逝，北魏明元帝拓跋嗣大举攻宋，先后攻取金塘（洛阳）、虎牢、滑台。430年，宋文帝刘义隆收复黄河以南失地，迫使魏军主动撤退，宋相继占领滑台、洛阳、虎牢。同年，北魏全线反击，连克金塘、洛阳、虎牢、滑台。&lt;/p&gt;
 
 &lt;p&gt; 公元449年，拓跋焘大破柔然，之后兵指刘宋，宋文帝为阻止魏军南下，发兵北攻。由于宋文帝舍功采对，自戳良将，杀害裴方明等名将，使士气大挫，加上连年征战，国力渐衰，军中久无御敌之将，又不顾朝臣之反对，于太平真君十一年发兵攻魏，魏军后发制人，以号称百万之众强渡黄河，步步逼近，宋军无奈只得南撤，从此宋文帝再也无力争夺中原。&lt;/p&gt;
@@ -466,9 +466,9 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
  
  <entry>
    <title>博客搬家了，告别wordpress</title>
-   <link href="http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress"/>
+   <link href="http://blog.jsfor.com/life/2013/05/23/farewell-to-wordpress"/>
    <updated>2013-05-23T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress</id>
+   <id>http://blog.jsfor.com/life/2013/05/23/farewell-to-wordpress</id>
    <content type="html">&lt;p&gt;10年开始用Wordpress写博客，也过了好多年了，它的易用性，丰富的插件和主题，曾让我着迷。&lt;/p&gt;
 
 &lt;p&gt;如今，我把博客搬到了github的jekyll博客平台，没有很多的主题，甚至可以说少得可怜，插件也不多。&lt;/p&gt;
@@ -503,9 +503,9 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
  
  <entry>
    <title>JavaScript模块加载器duckJS架构详解</title>
-   <link href="http://a.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie"/>
+   <link href="http://blog.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie"/>
    <updated>2013-04-05T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</id>
+   <id>http://blog.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</id>
    <content type="html">&lt;h3&gt;写在前面&lt;/h3&gt;
 
 &lt;p&gt;很早就想写这篇文章了，一方面是作个总结，另外也可以重新梳理一下思路。&lt;/p&gt;
@@ -861,9 +861,9 @@ if( toDepList ){
  
  <entry>
    <title>JavaScript模块加载器—duckJS简介</title>
-   <link href="http://a.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs"/>
+   <link href="http://blog.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs"/>
    <updated>2013-02-22T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</id>
+   <id>http://blog.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</id>
    <content type="html">&lt;h3&gt;duckJS是什么&lt;/h3&gt;
 
 &lt;p&gt;一款JavaScript模块加载器;&lt;/p&gt;

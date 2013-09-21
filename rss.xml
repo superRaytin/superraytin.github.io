@@ -3,10 +3,10 @@
 <channel>
         <title>柳裟</title>
         <description>柳裟 - 柳裟</description>
-        <link>http://a.jsfor.com</link>
-        <link>http://a.jsfor.com</link>
-        <lastBuildDate>2013-09-21T15:24:15+08:00</lastBuildDate>
-        <pubDate>2013-09-21T15:24:15+08:00</pubDate>
+        <link>http://blog.jsfor.com</link>
+        <link>http://blog.jsfor.com</link>
+        <lastBuildDate>2013-09-21T16:04:38+08:00</lastBuildDate>
+        <pubDate>2013-09-21T16:04:38+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -175,8 +175,8 @@ pause
 
 &lt;p&gt;&lt;img src=&quot;/assets/posts/images/jekyll-local-1.png&quot; alt=&quot;jekyll-local&quot; /&gt;&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</link>
-                <guid>http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</guid>
+                <link>http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</link>
+                <guid>http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</guid>
                 <pubDate>2013-09-07T00:00:00+08:00</pubDate>
         </item>
 
@@ -279,8 +279,8 @@ push到编辑器，当用户新建标签时，即在cache里开辟一个新的�
 
 &lt;p&gt;PS：以上32位版本，在64位系统上测试通过是可以使用的，不过不排除某些情况下失效，原因未知。&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</link>
-                <guid>http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</guid>
+                <link>http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</link>
+                <guid>http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</guid>
                 <pubDate>2013-08-23T00:00:00+08:00</pubDate>
         </item>
 
@@ -301,8 +301,8 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 &lt;p&gt;Node-webkit的github主页：&lt;a href=&quot;https://github.com/rogerwang/node-webkit&quot;&gt;https://github.com/rogerwang/node-webkit&lt;/a&gt;&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</link>
-                <guid>http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</guid>
+                <link>http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</link>
+                <guid>http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</guid>
                 <pubDate>2013-07-15T00:00:00+08:00</pubDate>
         </item>
 
@@ -348,8 +348,8 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 &lt;p&gt;&lt;img src=&quot;/assets/posts/images/git-webstorm-4.gif&quot; alt=&quot;pic&quot; /&gt;&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/skill/2013/06/18/git-local-in-webstorm</link>
-                <guid>http://a.jsfor.com/skill/2013/06/18/git-local-in-webstorm</guid>
+                <link>http://blog.jsfor.com/skill/2013/06/18/git-local-in-webstorm</link>
+                <guid>http://blog.jsfor.com/skill/2013/06/18/git-local-in-webstorm</guid>
                 <pubDate>2013-06-18T00:00:00+08:00</pubDate>
         </item>
 
@@ -457,8 +457,8 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 缘份落地生根是 我们&lt;br&gt;
 伽蓝寺听雨声盼 永恒&lt;br&gt;&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/story/2013/05/30/jia-lan-yu</link>
-                <guid>http://a.jsfor.com/story/2013/05/30/jia-lan-yu</guid>
+                <link>http://blog.jsfor.com/story/2013/05/30/jia-lan-yu</link>
+                <guid>http://blog.jsfor.com/story/2013/05/30/jia-lan-yu</guid>
                 <pubDate>2013-05-30T00:00:00+08:00</pubDate>
         </item>
 
@@ -494,8 +494,8 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 
 &lt;p&gt;加上webstorm的良好支持，写好文章之后直接push，之后的就交给github吧，而且还免费，这是多么好的一件事。&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress</link>
-                <guid>http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress</guid>
+                <link>http://blog.jsfor.com/life/2013/05/23/farewell-to-wordpress</link>
+                <guid>http://blog.jsfor.com/life/2013/05/23/farewell-to-wordpress</guid>
                 <pubDate>2013-05-23T00:00:00+08:00</pubDate>
         </item>
 
@@ -852,8 +852,8 @@ if( toDepList ){
 
 &lt;p&gt;github：&lt;a href=&quot;https://github.com/superRaytin/duckJS&quot;&gt;https://github.com/superRaytin/duckJS&lt;/a&gt;&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</link>
-                <guid>http://a.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</guid>
+                <link>http://blog.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</link>
+                <guid>http://blog.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</guid>
                 <pubDate>2013-04-05T00:00:00+08:00</pubDate>
         </item>
 
@@ -933,8 +933,8 @@ define( [&#39;jquery&#39;], function($){
 
 &lt;p&gt;GitHub地址：&lt;a href=&quot;https://github.com/superRaytin/duckJS&quot;&gt;https://github.com/superRaytin/duckJS&lt;/a&gt;   欢迎Fork。&lt;/p&gt;
 </description>
-                <link>http://a.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</link>
-                <guid>http://a.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</guid>
+                <link>http://blog.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</link>
+                <guid>http://blog.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</guid>
                 <pubDate>2013-02-22T00:00:00+08:00</pubDate>
         </item>
 
