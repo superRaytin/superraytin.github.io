@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>博客搬家了，告别wordpress</title>
+    <title>JavaScript模块加载器—duckJS简介</title>
     
     <meta name="author" content="柳裟">
 
@@ -67,52 +67,96 @@
 <article class="post">
     <div class="meta">
         <div class="date">
-            <time datetime='' data-updated="true" itemprop="datePublished">2013-05-23</time>
+            <time datetime='' data-updated="true" itemprop="datePublished">2013-02-22</time>
         </div>
         
     </div>
-    <h1 class="title">博客搬家了，告别wordpress</h1>
+    <h1 class="title">JavaScript模块加载器—duckJS简介</h1>
     <div class="entry markdown-body">
-        <p>10年开始用Wordpress写博客，也过了好多年了，它的易用性，丰富的插件和主题，曾让我着迷。</p>
+        <h3>duckJS是什么</h3>
 
-<p>如今，我把博客搬到了github的jekyll博客平台，没有很多的主题，甚至可以说少得可怜，插件也不多。</p>
+<p>一款JavaScript模块加载器;</p>
 
-<p>为什么？</p>
+<p>在遵循AMD规范的基础上，作了一些更加方便的改进，支持定义匿名模块。</p>
 
-<p>自从去年开始尝试着用 <code>有着程序员的fackbook之称的github</code> 托管代码，此后一发不可收拾，将我以前所写和正在写的项目通通搬上去。</p>
+<p>这样在调用模块的时候只需关心模块的URL，而不需要知道模块名称。</p>
 
-<p>不怕人家笑话，在这之前，我开发都用360云盘同步代码，公司家里两头传，有时候也会用U盘，一开始倒也不觉得麻烦，后来要写的东西慢慢变多了起来，顿时觉得有必要整理一翻了。</p>
+<h3>如何使用duckJS</h3>
 
-<p>其实之前很早就对github有所耳闻，人气相当旺，很多开源项目都用它来托管代码，而我对时下流行的web技术也有很多的兴趣，常常会被引到github，对它的关注越来越多也有这方面原因。</p>
+<p>轻松两步便可使用，举个栗子~</p>
 
-<p>而让我下定决心转到github上的却是webstorm，很适合前端开发以及web开发人员，非常棒，正如它的名字中的 <code>web</code> 字眼，它是为web开发人员（在下认为前端应该属于web开发之列）量身定做的
-一款相当精致的IDE，对Javascript，jQuery，Nodejs等的支持无所不包，我是直到去年看到同事在用之后才接触到，相见恨晚！此后一发不收拾（貌似这是第2次用这个词了），因为webstorm并
-没有提供汉化版，而我的英语词汇量并不能支持我全部看懂它...，我便用最原始的方法，对于不认识的功能，都点上一遍，算是熟悉过程，发现了很多让我惊喜的功能，其中之一就是对git的无缝对接，以及
-对Nodejs强劲的支持，完全可以脱离CMD了。</p>
+<pre><code>&lt;script type="text/javascript" src="path/duck.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    D.config({
+        alias : {
+            'jquery' : 'gallery/jquery-v1.7.2.min.js',
+            'style' : 'css/style.css'
+        }
+    });
+&lt;/script&gt;
+</code></pre>
 
-<p>想到我以前，从Dreamweaver到Nodepad++, 内牛满面，说多了都是泪... 我只能这么来比喻——webstorm就像是我失散多年的亲兄弟，它让我重新找到了写代码的快感。</p>
+<h3>define 定义模块</h3>
 
-<p>总之，灰常喜欢，爱深深了。</p>
+<pre><code>// test.js
+define( ['jquery'], function($){
+    D.log('模块已加载');
+    var fn = {
+        get : function(){ return 'i am a get method'; },
+        set : function( id, text ){
+            document.getElementById(id).value = text;
+            $('#test').html('');
+        }
+    };
+    return fn;
+});
+</code></pre>
 
-<p>俗话说，工欲善其事，必先得其器，还是很有道理的。</p>
+<p>define是一个全局方法，每一个参数为一个数组，表示此模块的依赖列表，也可以是一个字符串，表示只有一个依赖。</p>
 
-<p>有了webstorm这个好装备，checkout，提交，更新等等操作都不再繁琐，有句话叫什么——妥妥的。</p>
+<p>也可以忽略第一个参数，直接定义一个无依赖的匿名模块。</p>
 
-<p>如果说有了好装备是一个原因，那另外这个是最重要的，就是 <code>用Markdown写文章</code>。我只需要关注我要写的内容，并且格式定义简单，混久了github(github上面介绍之类的文档都是用markdown语法)
-也渐渐喜欢上了这种小清新的文档格式了。</p>
+<h3>use 调用模块</h3>
 
-<p>加上webstorm的良好支持，写好文章之后直接push，之后的就交给github吧，而且还免费，这是多么好的一件事。</p>
+<pre><code>&lt;script type="text/javascript"&gt;
+    // 加载一个样式文件
+    D.use('style');
+
+    D.use(['test','jquery'],function(test,$){
+        // your code...
+    });
+    ... more code of yours ...
+&lt;/script&gt;
+</code></pre>
+
+<p>解析模块路径将优先从用户设置的config里读取，如果模块未在config里设置，才会对test启动解析过程，比如test模块url最后会被解析为path/test.js，第二个参数是模块加载完成之后的回调，参数依次为依赖模块的输出，即exports。</p>
+
+<h3>预加载</h3>
+
+<pre><code>&lt;script type="text/javascript" src="path/duck.js" data-main="gallery/jquery-v1.7.2.min.js, path/test.js" /&gt;
+</code></pre>
+
+<p>在duckJS对应的script标签设置data-main属性，将会对其中的模块进行预加载（即随着页面初始时一起加载），多个模块用逗号隔开，此时模块相对路径为duckJS的路径，如果模块URL以‘/’开始，则相对于页面根路径。其原理相当于页面一加载即开始运行下面这段代码：</p>
+
+<pre><code>duckJS.use(['gallery/jquery-v1.7.2.min.js', 'path/test.js'])
+</code></pre>
+
+<h3>支持的浏览器</h3>
+
+<p>支持IE6+，及其他现代浏览器。</p>
+
+<p>GitHub地址：<a href="https://github.com/superRaytin/duckJS">https://github.com/superRaytin/duckJS</a>   欢迎Fork。</p>
 
     </div>
 </article>
 
 <nav id="pagenavi">
-    <a href="/story/2013/05/30/jia-lan-yu" class="next">Next</a>
+    <a href="/skill/2013/04/05/duckjs-jia-gou-xiang-jie" class="next">Next</a>
     <div class="center"><a href="/archive.html">Blog Archives</a></div>
 </nav>
 
 <script type="text/javascript" charset="utf-8">
-    var disqus_url = "http://superraytin.github.com/life/2013/05/23/farewell-to-wordpress";
+    var disqus_url = "http://superraytin.github.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs";
 </script>
 
 <!--

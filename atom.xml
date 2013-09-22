@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>柳裟</title>
- <link href="http://a.jsfor.com/" rel="self"/>
- <link href="http://a.jsfor.com"/>
- <updated>2013-09-12T20:58:22+08:00</updated>
- <id>http://a.jsfor.com</id>
+ <link href="http://blog.jsfor.com/" rel="self"/>
+ <link href="http://blog.jsfor.com"/>
+ <updated>2013-09-22T11:53:14+08:00</updated>
+ <id>http://blog.jsfor.com</id>
  <author>
    <name>柳裟</name>
    <email>superRaytin@163.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>windows下本地jekyll博客搭建手记</title>
-   <link href="http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes"/>
+   <link href="http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes"/>
    <updated>2013-09-07T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</id>
+   <id>http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes</id>
    <content type="html">&lt;h3&gt;前言&lt;/h3&gt;
 
 &lt;p&gt;准备把博客从wordpress搬到github，jekyll成为我的首选，这里主要介绍windows下本地搭建的步骤。之前曾经照着网上的介绍，一直没有成功，发现了不少问题，今天翻了诸多资料，也算是找到了一种可行
@@ -178,15 +178,15 @@ pause
 
 &lt;p&gt;批处理文件执行效果：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/jekyll-local-1.png&quot; alt=&quot;jekyll-local&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/jekyll-local-1.png&quot;&gt;&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>Rock! Markdown编辑器开发手记</title>
-   <link href="http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes"/>
+   <link href="http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes"/>
    <updated>2013-08-23T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</id>
+   <id>http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</id>
    <content type="html">&lt;h2&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;因为每周都要写周报，用markdown写文档是我的首选，不只是因为它的简洁高效，排版。公司办公电脑大都是win7系统，而windows平台markdown编辑器不多，其中功能比较好的当属markdownpad了，可打开速度每次都要让我菊花一紧，界面更谈不上美观，
@@ -197,7 +197,7 @@ pause
 
 &lt;h2&gt;最终的界面&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/posts/images/rock-markdown-1.png&quot; alt=&quot;Rock MarkDown Editor&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/rock-markdown-1.png&quot;&gt;&lt;/p&gt;
 
 &lt;h2&gt;功能分布&lt;/h2&gt;
 
@@ -241,15 +241,56 @@ fileMenu.append({
 
 &lt;p&gt;邮件发送直接用Node第三方模块 &lt;code&gt;Node-mailer&lt;/code&gt; 速度非常快。&lt;/p&gt;
 
-&lt;p&gt;标签功能&lt;/p&gt;
+&lt;h2&gt;多标签&lt;/h2&gt;
+
+&lt;p&gt;考虑到性能原因，编辑器采用了单例模式，即所有产生的标签都是在一个editor实例上进行操作，切换标签实际上是将新的一份标签信息
+push到编辑器，当用户新建标签时，即在cache里开辟一个新的存储单元，存储这个标签的所有信息，包括后来用户交互产生的信息。&lt;/p&gt;
+
+&lt;p&gt;关闭标签会将相应的存储单元删除，当用户关闭编辑器时会将当前打开的标签进行本地保存。&lt;/p&gt;
+
+&lt;p&gt;切换标签时，会对编辑器的内容，以及操作历史进行保存，以便可以撤销(undo)和重做(redo)。&lt;/p&gt;
+
+&lt;h2&gt;数据存储&lt;/h2&gt;
+
+&lt;p&gt;由于localStorage有大小限制，所以我曾想过用本地文件来做数据存储，后来因为一些原因没有采用。&lt;/p&gt;
+
+&lt;p&gt;其一，我发现nw的机制是，当运行nw程序时，nw会在本机用户目录的appData里创建临时文件，这些文件就是程序的源代码，程序退出时，临时文件会被删除，保存在程序目录里不可行；&lt;/p&gt;
+
+&lt;p&gt;其二，如果保存在程序目录以外的地方，可能会受到其他程序的影响以及用户的误操作等&lt;/p&gt;
+
+&lt;p&gt;综上，最后决定是所有用户个性化数据都用localStorage进行保存，只针对一些关键数据作保存。比如保存标签的信息中并不会保存编辑区的内容，而只是保存了
+标签所对应文件的url，用户下次打开时会重新读取url对应的磁盘文件。&lt;/p&gt;
+
+&lt;h2&gt;源文件暴露问题&lt;/h2&gt;
+
+&lt;p&gt;上面讲到的nw机制，nw程序运行会把源文件解压到appData临时文件，这样就暴露了源代码，虽然我已做了开源，并不担心源代码暴露问题。
+但为了研究别人怎么处理这个问题的，我对lightTable——一款老外用nw写的IDE，进行了研究，
+我把lightTable运行时解压出来的文件拖到nw的壳执行时，发现运行会出错，就很好奇是怎么做到的，难道作者对代码做了处理。一时无解。&lt;/p&gt;
+
+&lt;h2&gt;下载&lt;/h2&gt;
+
+&lt;p&gt;最新版本：Beta V0.1.2&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows 32bit:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://yunpan.cn/QXi3BSFrNCWGN&quot;&gt;云盘下载&lt;/a&gt;(推荐)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jsfor.com/project/rock/Rock!_Markdown_Editor_v0.1.2_win32bit.zip&quot;&gt;备用下载&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;PS：以上32位版本，在64位系统上测试通过是可以使用的，不过不排除某些情况下失效，原因未知。&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>以web的方式写桌面程序——Node-Webkit</title>
-   <link href="http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop"/>
+   <link href="http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop"/>
    <updated>2013-07-15T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</id>
+   <id>http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop</id>
    <content type="html">&lt;p&gt;Node的火热程度即使我不说，想来你也听说过很多次了，这里必须要说说Node平台迅速崛起的一匹黑马 —— Node-webkit，其实也不能说是归属Node平台，因为它并不是作为Node的模块存在——虽然作者也曾尝试这么干过， 像我一样许许多多曾被它名字的误导的朋友可以醒醒了，
 如果你还不清楚这是个什么东东，下面引述一段网上的介绍：&lt;/p&gt;
 
@@ -268,10 +309,57 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
  </entry>
  
  <entry>
+   <title>git项目的本地化过程（webstorm）</title>
+   <link href="http://blog.jsfor.com/skill/2013/06/18/git-local-in-webstorm"/>
+   <updated>2013-06-18T00:00:00+08:00</updated>
+   <id>http://blog.jsfor.com/skill/2013/06/18/git-local-in-webstorm</id>
+   <content type="html">&lt;p&gt;用github来管理多人协同开发的项目是一个不错的选择，它也是一个很棒的版本管理工具。&lt;/p&gt;
+
+&lt;h3&gt;正常过程&lt;/h3&gt;
+
+&lt;p&gt;使用起来也比较简单：&lt;/p&gt;
+
+&lt;p&gt;a·  首先需要先安装git的本地版本管理工具tortoiseGit，下载地址：http://code.google.com/p/tortoisegit/&lt;/p&gt;
+
+&lt;p&gt;b·  在github上新建一个仓库&lt;/p&gt;
+
+&lt;p&gt;c·  然后，在本地新建一个文件夹，右键 git init here，完成初始化，这时右键菜单的tortoiseGit里会出现 设置 等信息，点击设置&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-1.gif&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;将建好的仓库地址进行配置&lt;/p&gt;
+
+&lt;p&gt;d·  右键 git同步&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-2.gif&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;点击拉取&lt;/p&gt;
+
+&lt;h3&gt;在webstorm下本地化&lt;/h3&gt;
+
+&lt;p&gt;上面说的是一般的同步方式， 这里主要讲在webstorm中如何将一个git项目本地化&lt;/p&gt;
+
+&lt;p&gt;步骤：&lt;/p&gt;
+
+&lt;p&gt;a· 在github.com上创建一个新仓库，按照提示新建README.md，.gitignore, LICENSE等文件&lt;/p&gt;
+
+&lt;p&gt;b· 打开webstorm，VCS – checkout from version control – git – 输入仓库地址，之后本地将会生成一个与仓库同名文件夹&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-3.gif&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-3.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;c· 此时可以测试git的提交与更新，随意更新一个文件，点击工具栏上的commit changes，提交更新，成功&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/git-webstorm-4.gif&quot;&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>伽蓝雨</title>
-   <link href="http://a.jsfor.com/story/2013/05/30/jia-lan-yu"/>
+   <link href="http://blog.jsfor.com/story/2013/05/30/jia-lan-yu"/>
    <updated>2013-05-30T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/story/2013/05/30/jia-lan-yu</id>
+   <id>http://blog.jsfor.com/story/2013/05/30/jia-lan-yu</id>
    <content type="html">&lt;p&gt;南北朝时期，当时，以宋武帝刘裕为首的南朝宋，以及道武帝拓跋珪为首的北魏，那是中国历史上一段分裂的时期。公元420年开始，南北朝之间因势力扩张以及疆土兼并，战争不断，其间南朝负多胜少。公元422年，宋武帝刘裕病逝，北魏明元帝拓跋嗣大举攻宋，先后攻取金塘（洛阳）、虎牢、滑台。430年，宋文帝刘义隆收复黄河以南失地，迫使魏军主动撤退，宋相继占领滑台、洛阳、虎牢。同年，北魏全线反击，连克金塘、洛阳、虎牢、滑台。&lt;/p&gt;
 
 &lt;p&gt; 公元449年，拓跋焘大破柔然，之后兵指刘宋，宋文帝为阻止魏军南下，发兵北攻。由于宋文帝舍功采对，自戳良将，杀害裴方明等名将，使士气大挫，加上连年征战，国力渐衰，军中久无御敌之将，又不顾朝臣之反对，于太平真君十一年发兵攻魏，魏军后发制人，以号称百万之众强渡黄河，步步逼近，宋军无奈只得南撤，从此宋文帝再也无力争夺中原。&lt;/p&gt;
@@ -378,9 +466,9 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
  
  <entry>
    <title>博客搬家了，告别wordpress</title>
-   <link href="http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress"/>
+   <link href="http://blog.jsfor.com/life/2013/05/23/farewell-to-wordpress"/>
    <updated>2013-05-23T00:00:00+08:00</updated>
-   <id>http://a.jsfor.com/life/2013/05/23/farewell-to-wordpress</id>
+   <id>http://blog.jsfor.com/life/2013/05/23/farewell-to-wordpress</id>
    <content type="html">&lt;p&gt;10年开始用Wordpress写博客，也过了好多年了，它的易用性，丰富的插件和主题，曾让我着迷。&lt;/p&gt;
 
 &lt;p&gt;如今，我把博客搬到了github的jekyll博客平台，没有很多的主题，甚至可以说少得可怜，插件也不多。&lt;/p&gt;
@@ -410,6 +498,445 @@ API数量还有些少，可能也有安全层面的考虑吧，但从现在项�
 也渐渐喜欢上了这种小清新的文档格式了。&lt;/p&gt;
 
 &lt;p&gt;加上webstorm的良好支持，写好文章之后直接push，之后的就交给github吧，而且还免费，这是多么好的一件事。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>JavaScript模块加载器duckJS架构详解</title>
+   <link href="http://blog.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie"/>
+   <updated>2013-04-05T00:00:00+08:00</updated>
+   <id>http://blog.jsfor.com/skill/2013/04/05/duckjs-jia-gou-xiang-jie</id>
+   <content type="html">&lt;h3&gt;写在前面&lt;/h3&gt;
+
+&lt;p&gt;很早就想写这篇文章了，一方面是作个总结，另外也可以重新梳理一下思路。&lt;/p&gt;
+
+&lt;p&gt;duckJS早在去年就已完成，后来由于工作繁忙，以及github操作还不太熟练，搁置了很长时间。&lt;/p&gt;
+
+&lt;p&gt;最近在用node写一个CRUD应用，前端JS文件打算用duck来管理，就想到了这个事，这两天正好放假，索性来码字写好此文。&lt;/p&gt;
+
+&lt;h3&gt;duckJS是什么&lt;/h3&gt;
+
+&lt;p&gt;参考 &lt;a href=&quot;/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs/&quot;&gt;Javascript模块加载器—duckJS简介&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;整体结构&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;module&lt;/li&gt;
+&lt;li&gt;global&lt;/li&gt;
+&lt;li&gt;markCache&lt;/li&gt;
+&lt;li&gt;config&lt;/li&gt;
+&lt;li&gt;STATUS&lt;/li&gt;
+&lt;li&gt;use&lt;/li&gt;
+&lt;li&gt;load&lt;/li&gt;
+&lt;li&gt;define&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;主要功能属性与方法都存于duckJS构造函数，除了define。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var duckJS = function(){};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;提供给用户的是use和define。&lt;/p&gt;
+
+&lt;p&gt;module是一个二维map，作用是存储模块状态及模块所属加载队列。 结构如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  moduleName1: {// moduleName1是模块全名（即解析之后的）
+      queue:    &#39;queuename1&#39;,
+      status:   1
+  },
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;queue和status属性到后面讲load的时候再说。&lt;/p&gt;
+
+&lt;p&gt;global存放配置信息，主要有三个属性，&lt;code&gt;charset&lt;/code&gt;，&lt;code&gt;base&lt;/code&gt;，&lt;code&gt;alias&lt;/code&gt;，charset是加载JS文件时指定的编码，默认是utf-8， base放置加载模块时的相对路径，默认会设置为duckJS所在的路径。 alias用于存放模块别名。解析模块路径之前会先检查此项设置，如果此模块存在别名，则解析对象将替换为别名值，再进行解析。&lt;/p&gt;
+
+&lt;p&gt;markCache是一个二维map，用于在解析模块之后缓存模块的名值对信息，名是模块传入名，值是解析之后的模块全名和模块URL， 解析模块之前会根据传入模块ID先检查此map，如果存在，则代表已解析过，直接返回缓存中的模块信息。&lt;/p&gt;
+
+&lt;p&gt;config是提供给用户的配置工具，可以指定模块解析相对路径，模块别名及编码，一般来说，我们只关注配置模块别名， 格式示例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;D.config({
+    alias : {
+        &#39;jquery&#39; : &#39;jquery-1.9.1.min.js&#39;,
+        &#39;bootstrap&#39; : &#39;bootstrap.min.js&#39;,
+        &#39;alertify&#39; : &#39;alertify.min.js&#39;,
+        &#39;alertify-core&#39; : &#39;/css/alertify/alertify.core.css&#39;,
+        &#39;alertify-default&#39; : &#39;/css/alertify/alertify.default.css&#39;,
+        &#39;common&#39; : &#39;common.js&#39;
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用此方法后，将会覆盖掉默认的初始值。这样就可以用别名去调用模块。&lt;/p&gt;
+
+&lt;p&gt;STATUS代表模块状态，包含一组数字常量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;STATUS : {
+    FETCHING : 1, // 开始下载（输出script标签到页面）
+    READY : 2, // 已下载到本地，并准备就绪（所有依赖模块已保存）
+    COMPILING : 3, // 编译中（正在执行factory）
+    COMPILIED : 4 // 编译完成（正确输出了exports）
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;模块调用（use）&lt;/h3&gt;
+
+&lt;p&gt;一个use即一个加载队列，队列格式&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;QueueCache[ queue ] = {
+    names : modNames,
+    markNames : modNames.slice(), // 拷贝一个副本（JS中对象是按址传递）
+    urls : modUrls,
+    callback : callback
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;modNames和urls是数组，分别存放依赖模块解析之后的模块全名和模块URL，markNames是modNames的一个副本，用于在队列加载完成时获取依赖模块的输出，即exports。 至于为什么要特意制造一个副本，客官且接着往下看。&lt;/p&gt;
+
+&lt;p&gt;callback是一个函数，将在队列加载完成时触发。&lt;/p&gt;
+
+&lt;p&gt;第一次use开始加载队列，之后每次use，将会新增一个队列加到队列缓存QueueCache里。目的是控制队列的加载顺序，只有前一个队列加载完成了， 才会开始加载下一个，直到加载完所有队列。队列加载完成时将会从队列缓存中删除。&lt;/p&gt;
+
+&lt;h3&gt;加载队列（load）&lt;/h3&gt;
+
+&lt;p&gt;加载队列通过load来执行，开始会先检查当前模块状态。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if( mod.status &amp;amp;&amp;amp; mod.status &amp;gt; STATUS.FETCHING ){
+    // 检查该模块是否需要特殊回溯
+    mod.toDepListBack &amp;amp;&amp;amp; duckModule.fireFactoryBack( mod );
+
+    return complete();
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;complete为当前模块下载完触发onload（IE里是onreadystatechange）后执行，如果模块已经下载，则过滤掉直接执行complete， 你可能已经看到上面例子有一行代码，注释是&lt;code&gt;检查该模块是否需要特殊回溯&lt;/code&gt;，关于特殊回溯的作用我们留到下面讲模块定义define的时候作解释。&lt;/p&gt;
+
+&lt;p&gt;接着讲complete方法，它起着承上启下的作用，为什么这么说呢，先贴上compelte方法内容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var complete = function(){
+    // 返回继续加载未完成的模块
+    if( modNames.length ) return duckJS._load( queue );
+
+    // 所有模块及依赖都已下载完成
+    var exports = duckModule.getModExports( markNames );
+
+    // 执行回调
+    if( data.callback ){
+        data.callback.apply( null, exports );
+    };
+
+    // 删除加载完成的队列
+    delete QueueCache[ queue ];
+
+    // 检查是否还有未加载的队列
+    duckModule.getFirstItem( QueueCache ) &amp;amp;&amp;amp; duckJS._load( duckModule.getFirstItem( QueueCache ) );
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;总共五步，缺一不可。&lt;/p&gt;
+
+&lt;p&gt;暂且按着这五步来分析，第一步，这里是一层判断操作，modNames即当前队列里的模块们，modNames里的模块是以shift方式取出来加载的， 这意味着，到所有模块都加载完的时候，它会变成一个空的数组，这样看意思就很清楚了， 如果当前队列还有未加载的模块，递归重新加载，直到所有模块加载完成。&lt;/p&gt;
+
+&lt;p&gt;modNames数组会一直伴随当前队列，直到此队列里的模块全部加载完成，最后会随着队列的delete而消亡（即第四步）。&lt;/p&gt;
+
+&lt;p&gt;好，现在就可以解释前面的那个疑问，为什么要制造一个modNames的副本了，且再看第二步，此时队列状态是所有模块包括依赖模块 都已加载完，它的作用是获取模块的输出，要取得模块们的输出就必须有一个模块队列，而此时modNames已是一个空队列， 所以在use时才会特意制造一个副本markNames，以备这时候用。&lt;/p&gt;
+
+&lt;p&gt;第三步，前面已经取得了模块的输出，现在就可以触发队列回调了。&lt;/p&gt;
+
+&lt;p&gt;最后一步，前面我们讲过，只会在第一次use时才会转到load执行加载队列，如果后面还有N个use调用，如何衔接起来呢。 这里这有答案了，在第四步删除当前已加载完的队列之后，再去检查队列缓存里是否还有其他队列存在， 有的话再次递归，转到下一个队列，重复上面的步骤，直到所有队列加载完成。&lt;/p&gt;
+
+&lt;p&gt;load过程中会给当前模块加上queue和status属性，即当前模块所属加载队列和状态，并把当前模块name赋给闭包顶级变量onLoadingModName， 至于为什么这么干，老规矩，接着往下看。此时模块状态为FETCHING。&lt;/p&gt;
+
+&lt;h3&gt;模块定义（define）&lt;/h3&gt;
+
+&lt;p&gt;这里我们要先明白一件事，就是加载一个模块的整个流程，即：调用模块（use），加载队列（load），触发回调。&lt;/p&gt;
+
+&lt;p&gt;我们知道，JS是下载完即执行的，define发生在模块下载完成时，可以把它当成是一个包装器，使用define包装一个模块， 当执行它的时候，它去收集模块的依赖和factory，factory即模块工厂，负责输出模块的接口。&lt;/p&gt;
+
+&lt;p&gt;define是一个全局方法，挂在window下。它最多接受两个参数，模块依赖列表和模块工厂，唯独没有模块名称， 是的，考虑到大部分人的使用习惯，duckJS所有模块都设计成了匿名，调用模块无需知道模块名称，只需知道模块URL即可，很方便。&lt;/p&gt;
+
+&lt;p&gt;虽然说是“匿名”，名字其实还是有的，通过config工具即可给模块URL定义任意一个名字，如果未配置别名，duckJS会根据模块URL 解析出一个唯一的“名字”，事实上通过别名与通过模块URL调用同一个模块，最终生成的这个唯一名是一样的，别名只是调用模块的 快捷通道。当然，这一切都是悄悄地进行，用户感觉不到。&lt;/p&gt;
+
+&lt;p&gt;匿名的方式有利有弊，利就是更加方便，弊就是到了这里之后，无法确认当前模块信息，所以才有了上面提到的onLoadingModName， onLoadingModName是一个字符串，指向当前正在执行define的模块名，有了这个name，就可以通过在load里已经缓存好模块信息的module 缓存里定位当前模块了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module[ onLoadingModName ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;模块定位到了之后，开始分析模块的依赖信息，如果无依赖或者依赖已加载完成，则直接触发factory。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 无依赖或依赖已加载完成，触发factory
+if( !deps || !deps.length ){
+    mod.status = STATUS.READY;
+    var exports = duckModule.getModExports( mod.deps );
+
+    mod.status = STATUS.COMPILING;
+    mod.exports = factory.apply( null, exports );
+    mod.status = STATUS.COMPILIED;
+
+    // 回溯
+    if( mod.toDepListBack ){
+        duckModule.fireFactoryBack( mod );
+    }else{
+        duckModule.fireFactory( mod );
+    };
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们看到，触发factory时，模块状态变了三次，其实status的作用还有一点，前面没有讲，就是定位错误信息，方便调试。 如果没有错误出现，模块状态会安全到达compilied（已编译）,接着往上回溯。&lt;/p&gt;
+
+&lt;p&gt;其实回溯这里完全可以单独写一篇。因为三言两语很难讲清楚，回溯涉及模块之间的依赖关系，必须依靠图示，才会让人更容易理解， 接下来会多放一些图示，不只是单纯的代码。&lt;/p&gt;
+
+&lt;p&gt;刚刚说的是无依赖或依赖都加载完了的情况，现在开始讲有依赖且未加载的情况。&lt;/p&gt;
+
+&lt;p&gt;依赖树如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-01.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;图1&lt;/p&gt;
+
+&lt;p&gt;通过use调用A和B模块&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;duckJS.use([&#39;A&#39;, &#39;B&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时生成一个加载队列，一直到队列加载完成，队列里的模块及其所有层级依赖模块都会共用此队列。&lt;/p&gt;
+
+&lt;p&gt;模块factory触发过程如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-02.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;图2&lt;/p&gt;
+
+&lt;p&gt;factory触发过程有着严格的顺序，按照上图绿色箭头所指的顺序，从最深的依赖模块开始，一直到队列最后一个模块， 有了这个顺序，就可以保证执行当前模块factory时所需的依赖模块都已经提供了其接口，可以安全使用了。&lt;/p&gt;
+
+&lt;p&gt;拿上图来说，A2触发factory时，A2所需要的A1已经提供了其接口，不用关心A1所依赖的 A3和A4，因为A1提供好了接口说明A3和A4也是执行完了的，这个层级关系很重要。&lt;/p&gt;
+
+&lt;p&gt;这就像是连在一根引线上的鞭炮，这根引线就是队列，上面有着N个模块，用use点燃，就按照这个顺序挨个引爆， 一个鞭炮引爆了代表它前面的鞭炮全都引爆完了。&lt;/p&gt;
+
+&lt;p&gt;回溯的作用就是保证这个顺序。&lt;/p&gt;
+
+&lt;p&gt;回溯发生在最后一个依赖模块，即上图中黄色的A4、A2、B2，暂且称它们为回溯点，它的作用就像是螺丝钉，衔接起整个factory触发顺序。&lt;/p&gt;
+
+&lt;p&gt;我们从define分析依赖开始，来慢慢了解回溯发生的过程。&lt;/p&gt;
+
+&lt;p&gt;首先需要遍历传过来的依赖列表，过滤掉其中已经加载过的&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if( depMod.status &amp;gt; STATUS.FETCHING ){
+    deps.splice( i, 1 );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;未加载的塞入加载队列&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 如果最后一个依赖模块已加载，则依次往前推
+if( !lastDepMod ){
+    lastDepMod = depMod;
+};
+
+isLast = depMod.isLast || ( depMod.isLast = [] );
+isLast.unshift( i === len - 1 );
+
+// 塞入加载队列
+queueNames.unshift( depModName );
+queueUrls.unshift( depModUrl );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;lastDepMod指向最后一个模块，isLast用于特殊回溯的情况，下面讲特殊回溯的时候会涉及，暂且不管。 还是拿图1来说，加载队列里会有这样的变化：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1. [A, B]
+2. [A1, A2, B]
+3. [A3, A4, A2, B]
+4. [A4, A2, B]
+5. [A2, B]
+6. [B]
+7. [B1, B2]
+8. [B2]
+9. []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当队列为空，说明加载队列都完成了，队列的生命周期就结束了，此时就可以触发队列回调了。&lt;/p&gt;
+
+&lt;p&gt;处理完这些之后，开始保存模块信息&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 先查找当前模块的依赖列表
+lastDepMod.toDepList = toDepList || [];
+
+lastDepMod.toDepList.unshift({
+    name : loadingModName,
+    factory : factory
+});
+
+mod.status = STATUS.READY;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为什么要先查找当前模块的依赖列表呢。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-03.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;图3&lt;/p&gt;
+
+&lt;p&gt;这种情况下，A2和A3都是回溯点，A3要把A2的回溯信息继承过来。&lt;/p&gt;
+
+&lt;p&gt;toDepList存的是回溯信息，factory指向当前模块。此时模块状态更新为READY，代表模块信息保存完成，hold住，就等着回溯来触发它的factory了。&lt;/p&gt;
+
+&lt;p&gt;下面讲讲几种特殊回溯。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-04.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;图4&lt;/p&gt;
+
+&lt;p&gt;此时，lastDepMod指向A1，而非A2，&lt;code&gt;如果最后一个依赖模块已加载，则依次往前推&lt;/code&gt;，A2已加载过。 第一层依赖模块回溯点从A2往前移至A1，即A1的factory触发完可以安全地去找它的上级A了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-05.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;图5&lt;/p&gt;
+
+&lt;p&gt;我们看到，A2这时候既是A的依赖模块，同时也是A3的，这时候就要控制使得A2回溯点往上是回到A3而不是A（主持人：iaLast可以上场卖萌了）， 当初设计到这里的时候，迷惑了很久该如何处理这种情况，脑细胞死伤无数啊 (╯_╰) isLast是一个数组，在解析模块依赖时标示该依赖是否是最后一个，是则表示当前为回溯点。妙啊！当时一想出来这方法，乐得洒家直拍大腿&amp;lt;(￣︶￣)&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-example-06.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;图6&lt;/p&gt;
+
+&lt;p&gt;这种情况就比较蛋T了，A2作为A和A3的依赖，同时都是回溯点，现在就需要创建一个特殊的factory队列toDepListBack，有点像isLast&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 拷贝作为一个特殊回溯列表
+lastDepMod.toDepListBack = lastDepMod.toDepListBack || lastDepMod.toDepList.slice();
+
+// 当前模块有依赖列表
+if( toDepList ){
+    lastDepMod.toDepListBack = toDepList.concat( lastDepMod.toDepListBack );
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面这段代码会在解析A3的依赖的时候执行，同样也需要先检查当前模块的依赖，最后A2的toDepListBack兜里就会有两个东西了， A3和A，即A2第一次作为回溯点的时候，先回到A3，A3触发完同时从回溯队列里删除，第二次的时候回到A。&lt;/p&gt;
+
+&lt;p&gt;以上三种特殊回溯可以覆盖所有可能的特殊模块依赖树。&lt;/p&gt;
+
+&lt;p&gt;下面是特殊回溯的代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fireFactoryBack : function( depMod ){
+    // 当前为特殊回溯模块，且后面还有未触发factory的模块，则停止回溯
+    if( !depMod.isLast.shift() ) return;
+
+    var module = duckJS.module,
+        toDepListBack = depMod.toDepListBack,
+        toDepListBackItem = toDepListBack.shift(),
+        STATUS = duckJS.STATUS,
+        exports, mod, name, factory, depExports;
+
+    if( toDepListBackItem ){
+        name = toDepListBackItem.name;
+        factory = toDepListBackItem.factory;
+        mod = module[ name ];
+        depExports = duckModule.getModExports( mod.deps );
+
+        mod.status = STATUS.COMPILING;
+        exports = factory.apply( null, depExports );
+        mod.exports = exports;
+        mod.status = STATUS.COMPILIED;
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;duckJS加载流程图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;lazy&quot; src=&quot;/assets/posts/images/grey.gif&quot; data-original=&quot;/assets/posts/images/duckJS-process2.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;限于个人知识与经验，其中代码难免有算法及效率上的不足，如果你有更好的实现思路，欢迎留言拍砖，节操奉上。&lt;/p&gt;
+
+&lt;p&gt;后话：&lt;/p&gt;
+
+&lt;p&gt;当前市面上还有多款优秀的JS模块加载器，除了有名的requireJS，再有支付宝大牛玉伯的seaJS， 带刀的easyJS，司徒正美的mass也集成了模块加载器，等等…&lt;/p&gt;
+
+&lt;p&gt;感谢他们在JS模块化之路上所做的努力与贡献，感谢前人大牛的分享精神，致敬。&lt;/p&gt;
+
+&lt;p&gt;duckJS从中受益颇多，正基于此，才有了duckJS。分享实可贵，duckJS会延续这一点。&lt;/p&gt;
+
+&lt;p&gt;github：&lt;a href=&quot;https://github.com/superRaytin/duckJS&quot;&gt;https://github.com/superRaytin/duckJS&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>JavaScript模块加载器—duckJS简介</title>
+   <link href="http://blog.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs"/>
+   <updated>2013-02-22T00:00:00+08:00</updated>
+   <id>http://blog.jsfor.com/skill/2013/02/22/javascript-mo-kuai-jia-zai-qi-duckjs</id>
+   <content type="html">&lt;h3&gt;duckJS是什么&lt;/h3&gt;
+
+&lt;p&gt;一款JavaScript模块加载器;&lt;/p&gt;
+
+&lt;p&gt;在遵循AMD规范的基础上，作了一些更加方便的改进，支持定义匿名模块。&lt;/p&gt;
+
+&lt;p&gt;这样在调用模块的时候只需关心模块的URL，而不需要知道模块名称。&lt;/p&gt;
+
+&lt;h3&gt;如何使用duckJS&lt;/h3&gt;
+
+&lt;p&gt;轻松两步便可使用，举个栗子~&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;path/duck.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+    D.config({
+        alias : {
+            &#39;jquery&#39; : &#39;gallery/jquery-v1.7.2.min.js&#39;,
+            &#39;style&#39; : &#39;css/style.css&#39;
+        }
+    });
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;define 定义模块&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;// test.js
+define( [&#39;jquery&#39;], function($){
+    D.log(&#39;模块已加载&#39;);
+    var fn = {
+        get : function(){ return &#39;i am a get method&#39;; },
+        set : function( id, text ){
+            document.getElementById(id).value = text;
+            $(&#39;#test&#39;).html(&#39;&#39;);
+        }
+    };
+    return fn;
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;define是一个全局方法，每一个参数为一个数组，表示此模块的依赖列表，也可以是一个字符串，表示只有一个依赖。&lt;/p&gt;
+
+&lt;p&gt;也可以忽略第一个参数，直接定义一个无依赖的匿名模块。&lt;/p&gt;
+
+&lt;h3&gt;use 调用模块&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+    // 加载一个样式文件
+    D.use(&#39;style&#39;);
+
+    D.use([&#39;test&#39;,&#39;jquery&#39;],function(test,$){
+        // your code...
+    });
+    ... more code of yours ...
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解析模块路径将优先从用户设置的config里读取，如果模块未在config里设置，才会对test启动解析过程，比如test模块url最后会被解析为path/test.js，第二个参数是模块加载完成之后的回调，参数依次为依赖模块的输出，即exports。&lt;/p&gt;
+
+&lt;h3&gt;预加载&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;path/duck.js&quot; data-main=&quot;gallery/jquery-v1.7.2.min.js, path/test.js&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在duckJS对应的script标签设置data-main属性，将会对其中的模块进行预加载（即随着页面初始时一起加载），多个模块用逗号隔开，此时模块相对路径为duckJS的路径，如果模块URL以‘/’开始，则相对于页面根路径。其原理相当于页面一加载即开始运行下面这段代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;duckJS.use([&#39;gallery/jquery-v1.7.2.min.js&#39;, &#39;path/test.js&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;支持的浏览器&lt;/h3&gt;
+
+&lt;p&gt;支持IE6+，及其他现代浏览器。&lt;/p&gt;
+
+&lt;p&gt;GitHub地址：&lt;a href=&quot;https://github.com/superRaytin/duckJS&quot;&gt;https://github.com/superRaytin/duckJS&lt;/a&gt;   欢迎Fork。&lt;/p&gt;
 </content>
  </entry>
  

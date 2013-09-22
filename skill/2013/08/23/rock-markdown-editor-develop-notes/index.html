@@ -12,7 +12,6 @@
 
       <link href="/assets/themes/twitter/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
       <link href="/assets/themes/twitter/stylesheets/gfm.css" media="screen, projection" rel="stylesheet" type="text/css">
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
       <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
       <!--[if lt IE 9]>
@@ -99,7 +98,7 @@
 
 <h2>最终的界面</h2>
 
-<p><img src="/assets/posts/images/rock-markdown-1.png" alt="Rock MarkDown Editor" /></p>
+<p><img class="lazy" src="/assets/posts/images/grey.gif" data-original="/assets/posts/images/rock-markdown-1.png"></p>
 
 <h2>功能分布</h2>
 
@@ -143,7 +142,48 @@ fileMenu.append({
 
 <p>邮件发送直接用Node第三方模块 <code>Node-mailer</code> 速度非常快。</p>
 
-<p>标签功能</p>
+<h2>多标签</h2>
+
+<p>考虑到性能原因，编辑器采用了单例模式，即所有产生的标签都是在一个editor实例上进行操作，切换标签实际上是将新的一份标签信息
+push到编辑器，当用户新建标签时，即在cache里开辟一个新的存储单元，存储这个标签的所有信息，包括后来用户交互产生的信息。</p>
+
+<p>关闭标签会将相应的存储单元删除，当用户关闭编辑器时会将当前打开的标签进行本地保存。</p>
+
+<p>切换标签时，会对编辑器的内容，以及操作历史进行保存，以便可以撤销(undo)和重做(redo)。</p>
+
+<h2>数据存储</h2>
+
+<p>由于localStorage有大小限制，所以我曾想过用本地文件来做数据存储，后来因为一些原因没有采用。</p>
+
+<p>其一，我发现nw的机制是，当运行nw程序时，nw会在本机用户目录的appData里创建临时文件，这些文件就是程序的源代码，程序退出时，临时文件会被删除，保存在程序目录里不可行；</p>
+
+<p>其二，如果保存在程序目录以外的地方，可能会受到其他程序的影响以及用户的误操作等</p>
+
+<p>综上，最后决定是所有用户个性化数据都用localStorage进行保存，只针对一些关键数据作保存。比如保存标签的信息中并不会保存编辑区的内容，而只是保存了
+标签所对应文件的url，用户下次打开时会重新读取url对应的磁盘文件。</p>
+
+<h2>源文件暴露问题</h2>
+
+<p>上面讲到的nw机制，nw程序运行会把源文件解压到appData临时文件，这样就暴露了源代码，虽然我已做了开源，并不担心源代码暴露问题。
+但为了研究别人怎么处理这个问题的，我对lightTable——一款老外用nw写的IDE，进行了研究，
+我把lightTable运行时解压出来的文件拖到nw的壳执行时，发现运行会出错，就很好奇是怎么做到的，难道作者对代码做了处理。一时无解。</p>
+
+<h2>下载</h2>
+
+<p>最新版本：Beta V0.1.2</p>
+
+<ul>
+<li>Windows 32bit:
+
+<ul>
+<li><a href="http://yunpan.cn/QXi3BSFrNCWGN">云盘下载</a>(推荐)</li>
+<li><a href="http://www.jsfor.com/project/rock/Rock!_Markdown_Editor_v0.1.2_win32bit.zip">备用下载</a></li>
+</ul>
+</li>
+</ul>
+
+
+<p>PS：以上32位版本，在64位系统上测试通过是可以使用的，不过不排除某些情况下失效，原因未知。</p>
 
     </div>
 </article>
@@ -191,8 +231,8 @@ fileMenu.append({
                 Powered by <a href="http://jekyllbootstrap.com">Jekyll</a>
                 Design from <a href="http://shashankmehta.in/archive/2012/greyshade.html">Greyshade</a>
             </footer>
-            <script src="/assets/themes/twitter/javascripts/slash.js"></script>
-            <script src="/assets/themes/twitter/javascripts/jquery.fancybox.pack.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script src="/assets/themes/twitter/javascripts/jquery.lazyload.min.js"></script>
             <script src="/assets/themes/twitter/javascripts/common.js"></script>
         </div>
     </div>
