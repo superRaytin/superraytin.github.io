@@ -5,8 +5,8 @@
         <description>柳裟 - 柳裟</description>
         <link>http://blog.jsfor.com</link>
         <link>http://blog.jsfor.com</link>
-        <lastBuildDate>2013-10-19T11:53:49+08:00</lastBuildDate>
-        <pubDate>2013-10-19T11:53:49+08:00</pubDate>
+        <lastBuildDate>2014-03-08T20:36:08+08:00</lastBuildDate>
+        <pubDate>2014-03-08T20:36:08+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -262,22 +262,9 @@ push到编辑器，当用户新建标签时，即在cache里开辟一个新的�
 但为了研究别人怎么处理这个问题的，我对lightTable——一款老外用nw写的IDE，进行了研究，
 我把lightTable运行时解压出来的文件拖到nw的壳执行时，发现运行会出错，就很好奇是怎么做到的，难道作者对代码做了处理。一时无解。&lt;/p&gt;
 
-&lt;h2&gt;下载&lt;/h2&gt;
+&lt;h2&gt;下载地址&lt;/h2&gt;
 
-&lt;p&gt;最新版本：Beta V0.1.2&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Windows 32bit:
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://yunpan.cn/QXi3BSFrNCWGN&quot;&gt;云盘下载&lt;/a&gt;(推荐)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jsfor.com/project/rock/Rock!_Markdown_Editor_v0.1.2_win32bit.zip&quot;&gt;备用下载&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;PS：以上32位版本，在64位系统上测试通过是可以使用的，不过不排除某些情况下失效，原因未知。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://lab.jsfor.com/rockmarkdown&quot;&gt;http://lab.jsfor.com/rockmarkdown&lt;/a&gt; 或 &lt;a href=&quot;https://github.com/superRaytin/Rock_Markdown&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
 </description>
                 <link>http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</link>
                 <guid>http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes</guid>
