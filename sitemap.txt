@@ -10,6 +10,7 @@ http://blog.jsfor.com/rss.xml
 http://blog.jsfor.com/sitemap.txt
 http://blog.jsfor.com/tags.html
 
+http://blog.jsfor.com/skill/2014/03/28/linux-cenos-install-git
 http://blog.jsfor.com/skill/2013/09/07/jekyll-local-structures-notes
 http://blog.jsfor.com/skill/2013/08/23/rock-markdown-editor-develop-notes
 http://blog.jsfor.com/skill/2013/07/15/node-webkit-desktop-app-develop
