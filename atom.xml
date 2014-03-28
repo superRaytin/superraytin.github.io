@@ -4,13 +4,64 @@
  <title>柳裟</title>
  <link href="http://blog.jsfor.com/" rel="self"/>
  <link href="http://blog.jsfor.com"/>
- <updated>2014-03-08T20:36:08+08:00</updated>
+ <updated>2014-03-28T17:38:51+08:00</updated>
  <id>http://blog.jsfor.com</id>
  <author>
    <name>柳裟</name>
    <email>superRaytin@163.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Linux(CentOS)下安装git</title>
+   <link href="http://blog.jsfor.com/skill/2014/03/28/linux-cenos-install-git"/>
+   <updated>2014-03-28T00:00:00+08:00</updated>
+   <id>http://blog.jsfor.com/skill/2014/03/28/linux-cenos-install-git</id>
+   <content type="html">&lt;p&gt;上个月把VPS迁到budgetVM，终于不用再受digitalOcean的气了，入手很方便，重点是支持支付宝付款——paypal的界面真是不习惯，开通速度挺快的，1G的内存够我折腾一段时间了~，额外送了俩IP，过段时间再研究下把我那几个二级域名也绑定过来&lt;/p&gt;
+
+&lt;p&gt;今天刚把主站部署好，发现CentOS默认没有git工具，&lt;a href=&quot;http://git-scm.com/download/linux&quot;&gt;Git官网&lt;/a&gt; 提示可以通过yum安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;敲下命令，过了几分钟提示&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Setting up Install Process
+
+No package git available.
+
+Nothing to do
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查了下资料，运行如下命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;随后 &lt;code&gt;yum install git&lt;/code&gt; 后安装成功&lt;/p&gt;
+
+&lt;p&gt;Linux CentOS 5.x 32位适合上面的方式，其他系统版本的参考下面：&lt;/p&gt;
+
+&lt;p&gt;CentOS 5.x 64-bit(x64):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CentOS 6.x32-bit (x86/i386):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CentOS 6.x 64-bit(x64):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外，发现&lt;code&gt;screen&lt;/code&gt;命令的方式比&lt;code&gt;nohup&lt;/code&gt;好很多啊，nohup想要关掉，必须先找到进程ID，再kill，而screen切换，退出都比较方便&lt;/p&gt;
+
+&lt;p&gt;一直在win7下开发，都快out了，对linux还不是很熟悉，要学习的东西还挺多的&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>windows下本地jekyll博客搭建手记</title>
