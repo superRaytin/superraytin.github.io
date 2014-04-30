@@ -73,6 +73,67 @@
         <article class="post">
             <div class="meta">
                 <div class="date">
+                    <time datetime='2014-04-30' data-updated="true" itemprop="datePublished">2014-04-30</time>
+                </div>
+                
+                <div class="tags">
+                    
+                    
+
+
+  
+     
+    	<a class="category" href="/tags.html#Javascript-ref">Javascript</a>&nbsp;
+    
+  
+
+
+
+                </div>
+                
+            </div>
+            <h1 class="title"><a href="/skill/2014/04/30/browser-create-zip">Javascript在浏览器端生成文件并打包创建zip</a></h1>
+            <div class="markdown-body">
+                <p>偶然看到一项目，创建文件（文本or图片）然后打包成zip文件提供给用户下载，所有操作都是在浏览器端完成，反复测试，既不是利用HTML5新特性也不需要额外插件，
+也没有发出请求，甚至支持到IE8，震惊了有木有， 那是怎么做到的？一探究竟发现还是浏览器那些东西，感叹， 你以为已经很懂浏览器，其实不然;
+如果浏览器是一条河，很多时候也只是在河边打湿了鞋就着急上了岸。</p>
+
+<p>项目为叫JSZip，下面是官网的示例，用法简洁，我在其中增加了中文注释：</p>
+
+<pre><code>var zip = new JSZip();
+
+// 创建一个文本文件，内容为hello World
+zip.file("Hello.txt", "Hello World\n");
+
+// 创建一个images的文件夹
+var img = zip.folder("images");
+
+// 创建一个图片文件
+img.file("smile.gif", imgData, {base64: true});
+
+// 生成blob大对象
+var content = zip.generate({type:"blob"});
+
+// 打包保存为example.zip
+saveAs(content, "example.zip");
+
+/*
+example.zip包含以下文件
+Hello.txt
+images/
+    smile.gif
+*/
+</code></pre>
+
+<p>附上项目地址：<a href="https://github.com/Stuk/jszip">https://github.com/Stuk/jszip</a></p>
+
+            </div>
+            
+        </article>
+        
+        <article class="post">
+            <div class="meta">
+                <div class="date">
                     <time datetime='2014-03-28' data-updated="true" itemprop="datePublished">2014-03-28</time>
                 </div>
                 
@@ -93,6 +154,78 @@
                 
             </div>
             <h1 class="title"><a href="/skill/2014/03/28/linux-cenos-install-git">Linux(CentOS)下安装git</a></h1>
+            <div class="markdown-body">
+                <p>上个月把VPS迁到budgetVM，终于不用再受digitalOcean的气了，入手很方便，重点是支持支付宝付款——paypal的界面真是不习惯，开通速度挺快的，1G的内存够我折腾一段时间了~，额外送了俩IP，过段时间再研究下把我那几个二级域名也绑定过来</p>
+
+<p>今天刚把主站部署好，发现CentOS默认没有git工具，<a href="http://git-scm.com/download/linux">Git官网</a> 提示可以通过yum安装</p>
+
+<pre><code>yum install git
+</code></pre>
+
+<p>敲下命令，过了几分钟提示</p>
+
+<pre><code>Setting up Install Process
+
+No package git available.
+
+Nothing to do
+</code></pre>
+
+<p>查了下资料，运行如下命令</p>
+
+<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+</code></pre>
+
+<p>随后 <code>yum install git</code> 后安装成功</p>
+
+<p>Linux CentOS 5.x 32位适合上面的方式，其他系统版本的参考下面：</p>
+
+<p>CentOS 5.x 64-bit(x64):</p>
+
+<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+</code></pre>
+
+<p>CentOS 6.x32-bit (x86/i386):</p>
+
+<pre><code>rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm
+</code></pre>
+
+<p>CentOS 6.x 64-bit(x64):</p>
+
+<pre><code>rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm
+</code></pre>
+
+<p>另外，发现<code>screen</code>命令的方式比<code>nohup</code>好很多啊，nohup想要关掉，必须先找到进程ID，再kill，而screen切换，退出都比较方便</p>
+
+<p>一直在win7下开发，都快out了，对linux还不是很熟悉，要学习的东西还挺多的</p>
+
+            </div>
+            
+        </article>
+        
+        <article class="post">
+            <div class="meta">
+                <div class="date">
+                    <time datetime='2014-03-20' data-updated="true" itemprop="datePublished">2014-03-20</time>
+                </div>
+                
+                <div class="tags">
+                    
+                    
+
+
+  
+     
+    	<a class="category" href="/tags.html#MongoDB-ref">MongoDB</a>&nbsp;
+    
+  
+
+
+
+                </div>
+                
+            </div>
+            <h1 class="title"><a href="/skill/2014/03/20/mongodb-export-import">MongoDB数据的导入和导出</a></h1>
             <div class="markdown-body">
                 <p>上个月把VPS迁到budgetVM，终于不用再受digitalOcean的气了，入手很方便，重点是支持支付宝付款——paypal的界面真是不习惯，开通速度挺快的，1G的内存够我折腾一段时间了~，额外送了俩IP，过段时间再研究下把我那几个二级域名也绑定过来</p>
 
