@@ -227,49 +227,36 @@ Nothing to do
             </div>
             <h1 class="title"><a href="/skill/2014/03/20/mongodb-export-import">MongoDB数据的导入和导出</a></h1>
             <div class="markdown-body">
-                <p>上个月把VPS迁到budgetVM，终于不用再受digitalOcean的气了，入手很方便，重点是支持支付宝付款——paypal的界面真是不习惯，开通速度挺快的，1G的内存够我折腾一段时间了~，额外送了俩IP，过段时间再研究下把我那几个二级域名也绑定过来</p>
+                <p>首先CD到MongoDB的安装目录，接着CD到bin目录，以我本机地址为例</p>
 
-<p>今天刚把主站部署好，发现CentOS默认没有git工具，<a href="http://git-scm.com/download/linux">Git官网</a> 提示可以通过yum安装</p>
-
-<pre><code>yum install git
+<pre><code>cd D:\MongoDB
+cd bin
 </code></pre>
 
-<p>敲下命令，过了几分钟提示</p>
+<h3>导入</h3>
 
-<pre><code>Setting up Install Process
-
-No package git available.
-
-Nothing to do
+<pre><code>mongoimport -d testDB -c categories backdata/categories.dat
 </code></pre>
 
-<p>查了下资料，运行如下命令</p>
+<p>参数说明：</p>
 
-<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+<ul>
+<li>d - 库名</li>
+<li>c - 表名</li>
+<li>o - 导出位置（相对当前路径）</li>
+</ul>
+
+
+<h3>导出</h3>
+
+<pre><code>mongoexport -d testDB -c categories -o categories.dat
 </code></pre>
 
-<p>随后 <code>yum install git</code> 后安装成功</p>
+<p>参数与导入操作一样</p>
 
-<p>Linux CentOS 5.x 32位适合上面的方式，其他系统版本的参考下面：</p>
+<h3>为什么不能批量导入导出？</h3>
 
-<p>CentOS 5.x 64-bit(x64):</p>
-
-<pre><code>rpm -Uvh http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
-</code></pre>
-
-<p>CentOS 6.x32-bit (x86/i386):</p>
-
-<pre><code>rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm
-</code></pre>
-
-<p>CentOS 6.x 64-bit(x64):</p>
-
-<pre><code>rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm
-</code></pre>
-
-<p>另外，发现<code>screen</code>命令的方式比<code>nohup</code>好很多啊，nohup想要关掉，必须先找到进程ID，再kill，而screen切换，退出都比较方便</p>
-
-<p>一直在win7下开发，都快out了，对linux还不是很熟悉，要学习的东西还挺多的</p>
+<p>找来找去，MongoDB貌似没有提供批量导出的工具，目前是对指定数据库针对单表导入导出，不过要实现批量操作也并不是很困难，可以用Shell脚本实现</p>
 
             </div>
             
