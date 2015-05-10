@@ -1,2 +1,5 @@
-.idea/
-.git/
+_site/
+.sass-cache
+.ruby-version
+.idea
+.DS_Store
