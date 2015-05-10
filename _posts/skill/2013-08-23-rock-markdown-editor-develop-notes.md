@@ -2,6 +2,7 @@
 layout: post
 title : Rock! Markdown 编辑器开发简记
 date: 2013-08-23 22:13
+disqus: y
 ---
 
 ## 前言

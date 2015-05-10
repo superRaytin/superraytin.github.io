@@ -2,6 +2,7 @@
 layout: post
 title: 如何更好的写作
 date: 2015-05-10 15:09
+disqus: y
 ---
 
 
