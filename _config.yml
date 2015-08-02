@@ -9,6 +9,8 @@ google_analytics: # set tracking, remove from /javascripts/basic.js if unwanted.
 links:
   - name:         About
     url:          /about
+#  - name:         Lab
+#    url:          /project
   - name:         Email
     url:          superRaytin@163.com
     external:     true
