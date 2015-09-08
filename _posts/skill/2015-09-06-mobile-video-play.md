@@ -71,9 +71,26 @@ IOS 上播放即会自动全屏，所以不存在此问题，并且全屏之后�
 
 网络上这篇 [移动端HTML5&lt;video&gt;视频播放优化实践](http://www.xuanfengge.com/html5-video-play.html) 文章，对移动端 `<video>` 的表现作了详细的对比，数据很详尽，也非常值得一读。
 
+以上两款组件都支持 flash 和 video 方案，移动端使用 video 方式，由于不用加载插件，速度会比 flash 提高不少。
+
+### 其他
+
+`<video>` 支持 MP4, WebM, Ogg 三种视频格式，其中 MP4 格式支持最好，视频建议使用 H.264 编码，如果想要更好的兼容性，可以把这 3 种格式视频都制作好，用以下方式引用：
+
+```
+<video>
+ <source src="http://example.com/xxx.mp4" type='video/mp4' />
+ <source src="http://example.com/xxx.webm" type='video/webm' />
+ <source src="http://example.com/xxx.ogv" type='video/ogg' />
+<video>
+```
+
+视频大小理论上没有限制，但考虑到移动端特点，视频应尽量缩小。
+
 ## 参考资料
 
 - [https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/](https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html#//apple_ref/doc/uid/TP40009523-CH5-SW1)
 - [http://www.w3.org/TR/html5/embedded-content-0.html#the-video-element](http://www.w3.org/TR/html5/embedded-content-0.html#the-video-element)
 - [https://msdn.microsoft.com/library/hh924820.aspx](https://msdn.microsoft.com/library/hh924820.aspx)
+- [http://caniuse.com/#search=video](http://caniuse.com/#search=video)
 
