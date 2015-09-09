@@ -20,7 +20,8 @@ Swift 是苹果公司在 WWDC 2014 大会上推出的一种编程语言，可以
 据了解，Swift 编译后还是会映射成原来的 Object-C 的运行模型，有人说，Swift 是 Object-C 的一块大大的语法糖，
 官方的解释是 「A complete replacement for both the C and Objective-C languages.」
 
-不管怎么样，作为一个 Web 开发者，Swift 的语法看起来非常地亲切，和 Javascript 有几分相似，从这篇开始，我将记录学习 Swift 过程中的收获和感想。
+不管怎么样，作为一个 Web 开发者，Swift 的语法看起来非常地亲切，和 Javascript 有几分相似，从这篇开始，
+我将以 Web 开发者的视角记录学习 Swift 过程中的收获和感想。
 
 ### 准备工作
 
