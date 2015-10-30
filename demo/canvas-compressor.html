@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Compressor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        .col {
+            display: inline-block;
+            width: 49%;
+        }
+        .quality {
+            width: 120px;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+<h1>Canvas Compressor</h1>
+<div id="container">
+    <div class="col">
+        <h3>
+            Origin:
+            <span>
+                <input id="quality" class="quality" type="text" placeholder="Enter quality: 1~100">
+            </span>
+        </h3>
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="col">
+        <h3>Compressed: (<span id="level">0.1</span>)<a id="download" download="compressed.jpg" style="margin-left: 140px">download as an image</a></h3>
+        <img id="preview" src="">
+    </div>
+    <img id="source" src="" style="display: none;">
+</div>
+
+<script>
+    var canvas = document.getElementById('canvas');
+    var source = document.getElementById('source');
+    var preview = document.getElementById('preview');
+
+    var qualityLevel = 0.1;
+
+    source.onload = function() {
+        var width = source.width;
+        var height = source.height;
+        var context = canvas.getContext('2d');
+
+        canvas.width = width;
+        canvas.height = height;
+
+        var sx = 0;
+        var sy = 0;
+        var sWidth = width;
+        var sHeight = height;
+        var dx = 0;
+        var dy = 0;
+        var dWidth = width;
+        var dHeight = height;
+
+        context.drawImage(source, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+
+        var dataUrl = canvas.toDataURL('image/jpeg', qualityLevel);
+        preview.src = dataUrl;
+        document.getElementById('download').href = dataUrl;
+    };
+
+    source.src = '../assets/house.jpg';
+
+    var quality = document.getElementById('quality');
+    quality.addEventListener('keydown', function(e) {
+        if (e.which === 13) {
+            var value = e.currentTarget.value;
+            value = value < 1 ? 1 : value;
+            value = value > 100 ? 100 : value;
+            qualityLevel = parseFloat(value / 100);
+            document.getElementById('level').innerText = qualityLevel;
+            source.onload();
+        }
+    }, false);
+</script>
+</body>
+</html>
