@@ -1,17 +1,12 @@
 <div class="block">
-  <!-- Duoshuo Comment BEGIN -->
-  <div class="ds-thread" data-title="{{page.title}}" data-source-thread-id="{{page.url}}" data-url="{{page.url}}"></div>
-  <script type="text/javascript">
-      var duoshuoQuery = {short_name:"raytinblog"};
-      (function() {
-          var ds = document.createElement('script');
-          ds.type = 'text/javascript';ds.async = true;
-          ds.src = 'http://static.duoshuo.com/embed.js';
-          ds.charset = 'UTF-8';
-          (document.getElementsByTagName('head')[0]
-                  || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-  </script>
-  <noscript>Please enable JavaScript to view the comments.</noscript>
-  <!-- Duoshuo Comment END -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = "{{ site.disqus_shortname }}";
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
