@@ -178,8 +178,6 @@ function cropImage(targetCanvas, x, y, width, height) {
 cropImage(canvas, 250, 250, 90, 80)
 ```
 
-再进一步，可以把方法封装地彻底一点，实现传入一张图片
-
 好了，差不多就是这些。
 
 ### 参考资料
