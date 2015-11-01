@@ -11,13 +11,13 @@ disqus: y
 
 为了降低安装成本，这两天开始研究去掉图片处理功能中的 gm 依赖，替换为 HTML5 Canvas 来实现。
 
----
-
 在这之前没有深入研究过 canvas，通过这两天的查资料过程，发现 canvas 的 API 非常丰富，实现本文的功能可以说只用到了 canvas 的冰山一角。
 
 功能实现主要用到了 `CanvasRenderingContext2D.drawImage` 和 `HTMLCanvasElement.toDataURL` 两个方法，接下来先介绍一下这两个方法，如果想直接看结果，可以跳到文章结尾查看完整的例子和代码。
 
-#### CanvasRenderingContext2D.drawImage()
+---
+
+### CanvasRenderingContext2D.drawImage()
 
 drawImage 方法是 Canvas 2D 对象的方法，作用是将一张图片绘制到 canvas 画布中。
 
@@ -54,7 +54,7 @@ ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 
 还是不好理解？那换个姿势，可以这么理解：首先用 sx 和 sy 这两个值去定位图片上的坐标，再根据这个坐标点去图片中挖出一个矩形，矩形的宽高就是 sWidth 和 sHeight 了。矩形挖出来了，现在要把它绘制到画布中去，这时用 dx 和 dy 两个值来确定矩形在画布中的坐标位置，再用 dWidth 和 dHeight 确定划出多少画布区域给这个矩形。
 
-#### HTMLCanvasElement.toDataURL()
+### HTMLCanvasElement.toDataURL()
 
 toDataURL 是 canvas 画布元素的方法，返回指定图片格式的 data URI，也就是 base64 编码串。
 
@@ -65,7 +65,7 @@ toDataURL 方法最多接受两个参数，并且这两个参数都是可选的�
 
 另外，如果对应的 canvas 画布宽度或高度为 0，将会得到字符串 `data:,`，若图片格式不是 image/png，却得到一个以 `data:image/png` 开头的值，则说明不支持此图片格式。
 
-#### 图片质量
+### 图片质量
 
 对于图片质量参数的默认值，官方文档并没有说明，[这里](http://stackoverflow.com/questions/8371510/canvas-reduces-imagesize-of-jpeg-but-why) 提到 Firefox 的默认值是 0.92，我在最新 chrome 浏览器中测试发现大概也是这个数字。不过要想达到各平台统一表现，最好的办法是手动设置此参数。
 
@@ -116,7 +116,7 @@ source.onload = function() {
 source.src = 'house.jpg';
 ```
 
-编写了一个简单的 [Demo](superraytin.github.io/demo/canvas-compressor.html)，可输入质量参数查看压缩结果。
+编写了一个简单的 [Demo](http://superraytin.github.io/demo/canvas-compressor.html)，可输入质量参数查看压缩结果。
 
 ### 图片压缩结果分析
 
@@ -164,7 +164,7 @@ function cropImage(targetCanvas, x, y, width, height) {
 }
 ```
 
-以上代码，主要解释下 getImageData 和 putImageData 两个方法，它们都是 Canvas 2D 对象的方法，前者用于获取画布上根据参数指定矩形的像素数据，返回的是一个多维数组。后者则用于将这些像素数据绘制到画布中，同样可以指定画布中的绘制位置。
+以上代码中，getImageData 和 putImageData 都是 Canvas 2D 对象的方法，前者用于获取画布上根据参数指定矩形的像素数据，返回的是一个多维数组。后者则用于将这些像素数据绘制到画布中，同样可以指定画布中的绘制位置。
 
 裁切的原理是通过 canvas A 的 getImageData 方法取出图片中指定区域的像素数据，再用 canvas B 的 putImageData 方法将像素数据绘制到 canvas B 中，并保持 canvas B 的尺寸与取出区域的尺寸一致。canvas B 中的图片就是裁切得到的图片区域块。
 
