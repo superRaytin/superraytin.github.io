@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Canvas Compressor</title>
+    <title>FileReader Previewer</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -31,7 +31,7 @@
             var result = this.result;
             var img = new Image();
 
-            // 如果图片小于 200kb，则直接上传，否则压缩
+            // 如果图片小于 200kb，不压缩
             if (result.length <= maxsize) {
                 toPreviewer(result);
                 return;
@@ -75,9 +75,9 @@
         var base64data = canvas.toDataURL(fileType, 0.75);
 
         var initSize = img.src.length;
-        console.log('压缩前：' + initSize);
-        console.log('压缩后：' + base64data.length);
-        console.log('压缩率：' + ~~(100 * (initSize - base64data.length) / initSize) + "%");
+        console.log('压缩前：', initSize);
+        console.log('压缩后：', base64data.length);
+        console.log('压缩率：', 100 * (initSize - base64data.length) / initSize, "%");
 
         canvas = ctx = null;
 

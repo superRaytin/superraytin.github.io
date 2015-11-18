@@ -79,7 +79,6 @@ filechooser.onchange = function() {
     if (!/\/(?:jpeg|jpg|png)/i.test(file.type)) return;
 
     var reader = new FileReader();
-
     reader.onload = function() {
         var result = this.result;
         var img = new Image();
@@ -93,7 +92,6 @@ filechooser.onchange = function() {
         img.onload = function() {
             var compressedDataUrl = compress(img, file.type);
             toPreviewer(compressedDataUrl);
-
             img = null;
         };
 
@@ -105,7 +103,6 @@ filechooser.onchange = function() {
 
 function toPreviewer(dataUrl) {
     previewer.src = dataUrl;
-
     filechooser.value = '';
 }
 
@@ -121,12 +118,10 @@ function compress(img, fileType) {
 
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
     ctx.drawImage(img, 0, 0, width, height);
 
     // 压缩
     var base64data = canvas.toDataURL(fileType, 0.75);
-
     canvas = ctx = null;
 
     return base64data;
@@ -137,9 +132,9 @@ function compress(img, fileType) {
 
 ### 移动端使用的问题
 
-项目使用中发现在 PC 上一切正常，但在 IOS 8.2 和 IOS 7.1.2 系统上经过 canvas 压缩后，Data URL 变成了一长串空白像素的字符串，表现上就是预览区域是一片白，
-原因不明，在 stackoverflow 上有这么一条记录 [FileReader not working on iOS 8](http://stackoverflow.com/questions/25999083/filereader-not-working-on-ios-8)，但和我遇到
-的不是同一个问题，因为代码主要运行在手机浏览器，最后只能先把压缩功能撤销处理，改为原样上传。
+项目使用中发现在 PC 上一切正常，但在 IOS 8.2 和 IOS 7.1.2 系统上有个问题，选择手机拍摄的图片在经过 canvas 压缩后，Data URL 变成了一长串空白像素的字符串，表现上就是预览区域是一片白，
+而手机截屏的图片却能正常压缩，区别在于前者是 JPG 图片，后者是 PNG 格式的，目前尚不知原因所在，在 stackoverflow 上有这么一条记录 [FileReader not working on iOS 8](http://stackoverflow.com/questions/25999083/filereader-not-working-on-ios-8)，但和我遇到
+的不是同一个问题。由于代码主要运行在手机浏览器，最后只能先把压缩功能撤销处理，改为原样上传。
 
 从 [caniuse](http://caniuse.com/#search=filereader) 上可以看到，filereader 支持移动端 safari 6.1+ 和安卓原生浏览器 3.0+，canvas 支持 IOS safari 3.2+ 以及安卓原生浏览器 3.0+。
 从兼容性支持上来看，还是非常不错的。
