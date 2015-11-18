@@ -60,9 +60,9 @@ filechooser.onchange = function() {
 
 ### 结合 canvas 使用
 
-为什么要结合 canvas 使用呢，canvas 有一个 toDataURL 方法，可以设置图片质量，利用这一特性，就可以用来压缩图片。
+为什么要结合 canvas 使用呢，canvas 有一个 toDataURL 方法，可以设置图片质量，利用这一特性，就可以用来压缩图片，还是基于上面的代码，为图片上传增加一个压缩功能，比如超过 200KB，就按 75% 来压缩图片。
 
-还是基于上面的代码，为图片上传增加一个压缩功能，比如超过 200KB，就按 75% 来压缩图片。
+关于 canvas 压缩图片，也可以参考我之前的文章 [HTML5 CANVAS 实现图片压缩和裁切](http://superraytin.github.io/2015/10/31/html5-canvas-image-compress-crop/)
 
 ```js
 var filechooser = document.getElementById('filechooser');
@@ -83,7 +83,7 @@ filechooser.onchange = function() {
         var result = this.result;
         var img = new Image();
 
-        // 如果图片小于 200kb，则直接上传，否则压缩
+        // 如果图片小于 200kb，不压缩
         if (result.length <= maxsize) {
             toPreviewer(result);
             return;
