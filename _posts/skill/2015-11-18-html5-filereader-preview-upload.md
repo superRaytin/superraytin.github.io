@@ -7,12 +7,14 @@ disqus: y
 
 ### 回顾一下以前的图片上传方式
 
-在 HTML5 出现之前，通常是使用 Form + Input file 来上传图片，而且只有这种方式，虽然在之后衍生出了 Ajax 异步提交的黑科技，但本质上还是隐藏 Iframe + Form，这种方法通过监听 Iframe 的 readystate 状态
+在 HTML5 出现之前，通常是使用 Form + Input file 来上传图片，虽然在之后衍生出了 Ajax 异步提交的黑科技，但本质上还是隐藏 Iframe + Form，这种方法通过监听 Iframe 的 readystate 状态
 改变来处理上传进度和结果，这种方式相比纯 Form 提交的方式在体验上得到了很大的提升，因为不用刷新页面了，很多单页面应用都采用的这种方式。
 
 ### 使用 HTML5 FileReader 上传
 
-HTML5 出现了，图片上传的花样就多了，用 FileReader 来实现上面说的目的，原理其实就是通过 FileReader API 读取本地的图片文件，然后将文件转换成 base64 编码的字符串，即 Data URL，
+HTML5 出现了，图片上传的花样就多了，XMLHttpRequest Level 2 有一个 [FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData) 接口，也可以用来异步上传二进制文件，[这篇文章](http://www.cnblogs.com/lhb25/p/html5-formdata-tutorials.html) 作了详细的解读。
+
+好了，现在来看看如何用 FileReader 来实现上面说的目的，原理其实就是通过 FileReader API 读取本地的图片文件，然后将文件转换成 base64 编码的字符串，即 Data URL，
 说到这里，假如你对 Canvas 有一定了解，可能很快就明白了实现过程。
 
 是的，最终目的是得到 Data URL 编码串，最后将其提交到后台，后台再转换为二进制图片文件。
