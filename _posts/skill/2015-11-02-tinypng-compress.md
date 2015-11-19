@@ -32,10 +32,10 @@ curl --user api:$YOUR_API_KEY \
 
 ### 在 Node.js 中使用
 
-首先安装 `tinypng`：
+首先在项目中安装 `tinypng`：
 
 ```
-npm install -g tinify
+npm install --save tinify
 ```
 
 使用：
@@ -65,6 +65,8 @@ gulp.task('tinypng', function(){
 ```
 
 Tinypng API 支持所有主流的平台，除了 Node.js，目前还支持 Ruby, PHP, Python, Java 等平台。
+
+除了图片压缩，Tinypng 还支持对图片做缩放，裁切等处理，还支持上传到 Amazon S3 等云服务，可以到官网上了解更多信息。
 
 ### 参考资料
 
