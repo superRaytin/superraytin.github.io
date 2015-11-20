@@ -7,7 +7,9 @@ disqus: y
 
 ![tinypng](/images/tinypng-banner.png)
 
-[Tinypng](https://tinypng.com/) 是一个 PNG 图片压缩工具，压缩率能达到 50% 以上，压缩之后几乎看不出差别。
+[Tinypng](https://tinypng.com/) 是一款 PNG 图片压缩工具，压缩率能达到 50% 以上，图片在压缩之前和之后几乎看不出差别。
+
+Tinypng 在设计师人群中比较流行，现在介绍给广大的程序员。
 
 据官网介绍，它的原理是通过合并图片中相似的颜色，通过将 24 位的 PNG 图片压缩成小得多的 8 位色值的图片，并且去掉了图片中不必要的 metadata（元数据，从 Photoshop 等工具中导出的图片都会带有此类信息），这种方式几乎能完美支持原图片的透明度。
 
@@ -15,11 +17,11 @@ disqus: y
 
 ## 使用方式
 
-登录 Tinypng 官网，拖拽文件即可使用，通过官网的在线压缩方式测试了几次，得到的图片压缩率都在 70% 以上，几乎无损，算法可谓牛X。
+登录 Tinypng 官网，拖拽文件即可使用，通过官网的在线压缩方式测试了几次，得到的图片压缩率都在 70% 以上，几乎无损。#牛X的算法#
 
 ![tinypng](/images/tinypng-compress-1.png)
 
-除了在线使用，Tinypng 还提供了 HTTP API，使用之前需要先[申请 key](https://tinypng.com/developers)，免费版每月可以处理 500 张照片，对于一般项目来说够用了。
+除了在线使用，还可以通过其提供的 [PhotoShop 插件](https://tinypng.com/photoshop)来导出图片，不过程序员肯定是看不上的，另外 $50 美刀的价格也略贵，所以就不详细介绍了，Tinypng 提供了 HTTP API，使用之前需要先[申请 key](https://tinypng.com/developers)，免费版每月可以处理 500 张图片，对于一般项目来说够用了。
 
 申请好 key 之后，就可以使用以下方式：
 
