@@ -9,7 +9,7 @@ disqus: y
 
 [Tinypng](https://tinypng.com/) 是一个 PNG 图片压缩工具，压缩率能达到 50% 以上，压缩之后几乎看不出差别。
 
-据官网介绍，它的原理是通过合并图片中相似的颜色，通过将 24 位的 PNG 图片压缩成小得多的 8 位索引图片，并且去掉了图片中不必要的 metadata（元数据，从 Photoshop 等工具中导出的图片都会带有此类信息），通过这种方式达到完美支持原图片的透明度。
+据官网介绍，它的原理是通过合并图片中相似的颜色，通过将 24 位的 PNG 图片压缩成小得多的 8 位色值的图片，并且去掉了图片中不必要的 metadata（元数据，从 Photoshop 等工具中导出的图片都会带有此类信息），这种方式几乎能完美支持原图片的透明度。
 
 它还有一个兄弟叫 [Tinyjpg](https://tinyjpg.com/)，支持 JPG 图片压缩。
 
@@ -19,7 +19,7 @@ disqus: y
 
 ![tinypng](/images/tinypng-compress-1.png)
 
-除了在线使用，Tinypng 还提供了 HTTP API，使用之前需要先申请 key，免费版每月可以处理 500 张照片，对于一般项目来说够用了。
+除了在线使用，Tinypng 还提供了 HTTP API，使用之前需要先[申请 key](https://tinypng.com/developers)，免费版每月可以处理 500 张照片，对于一般项目来说够用了。
 
 申请好 key 之后，就可以使用以下方式：
 
@@ -32,7 +32,7 @@ curl --user api:$YOUR_API_KEY \
 
 ### 在 Node.js 中使用
 
-首先在项目中安装 `tinypng`：
+首先在项目中安装 `tinify`：
 
 ```
 npm install --save tinify
@@ -57,16 +57,16 @@ source.toFile("optimized.jpg");
 var gulp = require('gulp');
 var tinypng = require('gulp-tinypng');
 
-gulp.task('tinypng', function(){
-    return gulp.src('src/images/**/*')
-     .pipe(tinypng('YOUR_API_KEY'))
-    .pipe(gulp.dest('dist/images'));
+gulp.task('tinypng', function() {
+    return gulp.src('src/images/**/*') // 要压缩的图片所在位置
+     .pipe(tinypng('YOUR_API_KEY')) // 申请的 key
+    .pipe(gulp.dest('dist/images')); // 目标输出位置
 });
 ```
 
 Tinypng API 支持所有主流的平台，除了 Node.js，目前还支持 Ruby, PHP, Python, Java 等平台。
 
-除了图片压缩，Tinypng 还支持对图片做缩放，裁切等处理，还支持上传到 Amazon S3 等云服务，可以到官网上了解更多信息。
+除了图片压缩，Tinypng 还支持对图片做缩放，裁切等处理，还支持与 Amazon S3 等云服务一起使用，可以到官网上了解更多信息。
 
 ### 参考资料
 
