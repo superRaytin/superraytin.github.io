@@ -1,6 +1,6 @@
 ---
 layout: post
-title : 编译继承代码的一个兼容问题
+title : Babel 编译 ES6 继承代码的一个兼容问题
 date: 2016-03-15 13:28
 disqus: y
 ---
