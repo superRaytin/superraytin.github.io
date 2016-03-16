@@ -1,6 +1,6 @@
 ---
 layout: post
-title : Babel6 编译 ES6 继承代码的一个兼容问题 (IE <= 10)
+title : Babel6 编译 ES6 继承代码的一个兼容问题 (IE 10 及以下)
 date: 2016-03-16 17:26
 disqus: y
 ---
