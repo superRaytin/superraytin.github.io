@@ -1,7 +1,7 @@
 ---
 layout: post
-title : 为什么文章无法自动生成，jekyll 有问题？
-date: 2016-03-15 13:35
+title : Babel6 编译 ES6 继承代码的一个兼容问题（IE <= 10）
+date: 2016-03-16 17:26
 disqus: y
 ---
 
