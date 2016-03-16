@@ -100,7 +100,7 @@ Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass._
 Object.getPrototypeOf(Child).apply(this, arguments)
 ```
 
-`getPrototypeOf()` 是 ES5 的方法，用于获取对象原型，`setPrototypeOf()` 是 ES6 的方法，用于设置目标对象的原型。上述代码先用 setPrototypeOf 把父类构造函数设为子类构造函数的原型，然后用 getPrototypeOf 获取子类构造函数的原型，看起来这和 `Parent.call(this, name)` 不是一样的么？
+`getPrototypeOf()` 是 ES5 的方法，用于获取对象原型，`setPrototypeOf()` 是 ES6 的方法，用于设置目标对象的原型。上述代码先用 setPrototypeOf 把父类构造函数设为子类构造函数的原型，然后用 getPrototypeOf 获取子类构造函数的原型，看起来这和 `Parent.call(this, name)` 效果不是一样的么？至于 Babel 为什么要这么干接着往下看。
 
 ### ES2016(ES7) 的静态方法
 
