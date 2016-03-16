@@ -1,6 +1,6 @@
 ---
 layout: post
-title : 使用 jasmine 编写单元测试（浏览器）
+title : 使用 jasmine 编写单元测试（浏览器端）
 date: 2015-12-04 13:35
 disqus: y
 ---
