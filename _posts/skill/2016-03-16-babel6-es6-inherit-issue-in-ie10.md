@@ -1,7 +1,7 @@
 ---
 layout: post
 title : Babel6 编译 ES6 继承代码的一个兼容问题（IE <= 10）
-date: 2016-03-16 17:27
+date: 2016-03-16 17:28
 disqus: y
 ---
 
